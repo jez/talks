@@ -4,8 +4,9 @@ title: "Talks"
 subtitle: Jake Zimmerman
 ---
 
-I always love getting the chance to speak on topics about which I'm passionate.
-This site is a repository to collect all the talks I've given.
+I've been lucky enough to have given a number of talks on subjects I care about.
+This site acts as a repository of the talk descriptions and slides in the hopes
+that they might be useful.
 
 
 {% capture numposts %}{{ site.posts | size }}{% endcapture %}
