@@ -24,6 +24,10 @@ pandoc:
     - from: 'markdown+tex_math_single_backslash'
     - filter: 'pandoc-sidenote'
 
+# HACK(jez): We have to hard code the site.baseurl here
+header_includes:
+  - '<link rel="stylesheet" href="/talks/assets/css/extras.css">'
+
 gems:
   - jekyll-feed
   - jekyll-pandoc
