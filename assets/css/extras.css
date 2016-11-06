@@ -5,3 +5,5 @@
 p.signoff { font-size: 1.2rem; }
 
 body { max-width: 1150px; }
+
+section > ul { width: 85%; }
