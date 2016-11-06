@@ -1,0 +1,52 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+title: Talks
+author: Jake Zimmerman
+description: A repository of talks I've given
+baseurl: "/talks"
+url: "https://jez.io"
+future: true
+
+theme: 'tufte-pandoc-jekyll'
+
+permalink: '/:categories/:slug/'
+
+# TODO(jez): figure out how to get optional TOC? we'd need to:
+#   - update the 'extensions:' below
+#   - grab it from the generated pandoc
+#   - add it to the default.html template
+markdown: Pandoc
+pandoc:
+  extensions:
+    - smart
+    - section-divs
+    - from: 'markdown+tex_math_single_backslash'
+    - filter: 'pandoc-sidenote'
+
+gems:
+  - jekyll-feed
+  - jekyll-pandoc
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - tags
+
+# Octopress configuration
+
+post_ext: md
+page_ext: md
+
+# Default templates for posts and pages
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: post

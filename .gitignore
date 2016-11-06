@@ -1,0 +1,4 @@
+.*.sw[nop]
+tags
+_site
+.sass-cache
