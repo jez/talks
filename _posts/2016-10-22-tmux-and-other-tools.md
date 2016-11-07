@@ -12,4 +12,4 @@ In particular, we explore package managers, `tmux`, `fzf`, and `ag`. These
 programs blew my mind the first time I discovered them, and I enjoy being able
 to share them with others.
 
-- [Tmux & Other Tools (PDF)](../slides/tmux-and-other-tools.pdf)
+- [Tmux & Other Tools](../slides/tmux-and-other-tools.pdf)

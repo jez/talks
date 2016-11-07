@@ -7,3 +7,8 @@ p.signoff { font-size: 1.2rem; }
 body { max-width: 1150px; }
 
 section > ul { width: 85%; }
+
+/* Append ' (PDF)' to links to slides */
+a[href$=".pdf"]::after {
+  content: ' (PDF)';
+}
