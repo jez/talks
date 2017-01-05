@@ -1,13 +1,3 @@
-/* The default x-height for code is slightly too large in side notes */
-.marginnote code, .sidenote code { font-size: 0.9rem; }
-
-/* Make "Home" link small */
-p.signoff { font-size: 1.2rem; }
-
-body { max-width: 1150px; }
-
-section > ul { width: 85%; }
-
 /* Append ' (PDF)' to links to slides */
 a[href$=".pdf"]::after {
   content: ' (PDF)';

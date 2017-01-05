@@ -317,6 +317,34 @@ label.margin-toggle:not(.sidenote-number) {
 
   img {
     width: 100%; } }
+/* The default x-height for code is slightly too large in side notes */
+.marginnote code, .sidenote code {
+  font-size: 0.9rem; }
+
+/* Make "Home" link small */
+p.signoff {
+  font-size: 1.2rem; }
+
+body {
+  max-width: 1150px; }
+
+/*
+ * Proper wrapping for lists that occur outside of sections.
+ */
+section > ol,
+article > ol,
+section > ul,
+article > ul {
+  width: 45%;
+  -webkit-padding-start: 5%;
+  -webkit-padding-end: 5%; }
+
+@media (max-width: 760px) {
+  section > ol,
+  article > ol,
+  section > ul,
+  article > ul {
+    width: 85%; } }
 /* For smart quotes */
 q {
   quotes: "“" "”" "‘" "’"; }
