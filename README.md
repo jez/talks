@@ -6,6 +6,13 @@ that they might be useful.
 
 <https://jez.io/talks/>
 
+## Theme
+
+This site uses the [Tufte Pandoc Jekyll] theme, which combines tufte-css with
+Pandoc Markdown (including support for tufte-css-style sidenotes!).
+
+[Tufte Pandoc Jekyll]: https://github.com/jez/tufte-pandoc-jekyll
+
 
 ## License
 
