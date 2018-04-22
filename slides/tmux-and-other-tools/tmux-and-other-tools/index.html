@@ -1,0 +1,218 @@
+<section id="package-managers" class="level1">
+<h1>Package Managers</h1>
+<section id="package-managers-make-installing-software-easy" class="level2">
+<h2>Package managers make installing software easy</h2>
+<p>Package managers…</p>
+<ul>
+<li>let us install software from the command line.</li>
+<li>are usually specific to an operating system.
+<ul>
+<li>macOS? <span class="math inline">→</span> <code>brew</code></li>
+<li>Ubuntu? <span class="math inline">→</span> <code>apt-get</code></li>
+<li>Arch? <span class="math inline">→</span> <code>pacman</code></li>
+</ul></li>
+<li>usually ship along side the operating system.
+<ul>
+<li>exception: <code>brew</code> on macOS needs to be installed separately</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-your-package-manager1" class="level2">
+<h2>Using your package manager<span><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">Windows users: the rest of this talk assumes macOS or Linux.<br />
+<br />
+</span></span></h2>
+<p>Package managers all have different commands and syntax.</p>
+<ul>
+<li>macOS
+<ul>
+<li>First download &amp; install: <a href="http://brew.sh" class="uri">http://brew.sh</a></li>
+<li><code>brew install &lt;package&gt;</code></li>
+</ul></li>
+<li>Ubuntu
+<ul>
+<li><code>sudo apt-get install &lt;package&gt;</code></li>
+</ul></li>
+</ul>
+<p>For other systems, take a second to look up how to install packages using your package manager.</p>
+</section>
+</section>
+<section id="tmux" class="level1">
+<h1><code>tmux</code></h1>
+<section id="tmux-is-a-terminal-multiplexer" class="level2">
+<h2><code>tmux</code> is a terminal multiplexer</h2>
+<p>From Wikipedia:</p>
+<blockquote>
+<p><code>tmux</code> is a software application that can be used to “multiplex” several virtual consoles, allowing a user to access multiple separate terminal sessions inside a single terminal window or remote terminal session. It is useful for dealing with multiple programs from a command-line interface.</p>
+</blockquote>
+<p>TL;DR:</p>
+<ul>
+<li>You can create tabs running different commands</li>
+<li>You can create splits (horizontally and vertically) running different commands</li>
+</ul>
+</section>
+<section id="launching-tmux-creates-a-session" class="level2">
+<h2>Launching <code>tmux</code> creates a “session”</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Create a session</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">$ tmux</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Create a named session</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">$ tmux new -s gpi</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># Attach to last session you detached from</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">$ tmux a</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># Attach to any named session you detached from</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">$ tmux a -t gpi</a></code></pre></div>
+<p>Note that we can “detach” from sessions. In fact, if we get disconnected: <code>tmux</code> automatically detaches us!</p>
+</section>
+<section id="we-use-tmux-with-a-prefix" class="level2">
+<h2>We use <code>tmux</code> with a “prefix”</h2>
+<p>Nearly all <code>tmux</code> commands look like:</p>
+<ul>
+<li>Press <code>&lt;prefix&gt;</code>, release, then press <code>&lt;key&gt;</code></li>
+</ul>
+<p><code>&lt;prefix&gt;</code> is <code>Ctrl + B</code> by default</p>
+<ul>
+<li>You can rebind this if you want (ex: I use <code>Ctrl + F</code>)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>Ctrl + B, %</code> <span class="math inline">→</span> create vertical split</li>
+<li><code>Ctrl + B, &quot;</code> <span class="math inline">→</span> create horizontal split</li>
+<li><code>Ctrl + B, c</code> <span class="math inline">→</span> create new tab</li>
+</ul>
+</section>
+<section id="why-use-tmux-then" class="level2">
+<h2>Why use <code>tmux</code>, then?</h2>
+<ul>
+<li>Never lose your work from a shaky network
+<ul>
+<li>Just re-login and re-attach to your session</li>
+</ul></li>
+<li>Split the screen
+<ul>
+<li>80-character line length enables screen splitting</li>
+</ul></li>
+<li>Avoid re-typing your password
+<ul>
+<li>Creating a new tab or split doesn’t require a password</li>
+</ul></li>
+<li>Customize <code>tmux</code>
+<ul>
+<li>You can choose the fastest keyboard shortcuts that work for you</li>
+</ul></li>
+</ul>
+</section>
+<section id="tmux-config-cheat-sheet" class="level2">
+<h2><code>tmux</code> config &amp; cheat sheet</h2>
+<blockquote>
+<p>It’s dangerous to go alone! Take this.</p>
+</blockquote>
+<p>This config file makes using <code>tmux</code> easier to start.</p>
+<ul>
+<li><a href="https://github.com/cmugpi/dotfiles/blob/master/tmux.conf">Starter <code>tmux.conf</code> file</a></li>
+</ul>
+<p>This cheat sheet has everything else you want to know.</p>
+<ul>
+<li><a href="https://gist.github.com/MohamedAlaa/2961058"><code>tmux</code> shortcuts &amp; cheatsheet</a></li>
+</ul>
+</section>
+</section>
+<section id="fzf" class="level1">
+<h1><code>fzf</code></h1>
+<section id="fzf-is-a-command-line-fuzzy-finder" class="level2">
+<h2><code>fzf</code> is a command line fuzzy finder</h2>
+<ul>
+<li>TL;DR: look at <a href="https://github.com/junegunn/fzf">this awesome demo</a></li>
+<li>To install: <a href="https://github.com/junegunn/fzf" class="uri">https://github.com/junegunn/fzf</a>
+<ul>
+<li>Just go ahead and answer “yes” to everything</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-fzf-is-crazy-powerful" class="level2">
+<h2>Using <code>fzf</code> is crazy powerful</h2>
+<ul>
+<li>Press <code>Ctrl + T</code> to fuzzy-find files in the current folder.
+<ul>
+<li>Type things to filter results</li>
+<li>Use arrow keys to highlight result</li>
+<li>Press <code>Enter</code> to select it</li>
+</ul></li>
+<li>Fuzzy-patterns let you omit characters:
+<ul>
+<li><code>&quot;fzf&quot;</code> matches <code>&quot;fuzzy-find.txt&quot;</code></li>
+<li><code>&quot;itl&quot;</code> matches <code>&quot;insert_tree_in_leaf.c&quot;</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="fzf-is-great" class="level2">
+<h2><code>fzf</code> is great</h2>
+<ul>
+<li>The previous slide is already enough to love</li>
+<li>But there’s even more!
+<ul>
+<li>Color themes</li>
+<li>Custom keybindings</li>
+<li>History search</li>
+<li><code>my-command $(fzf)</code></li>
+<li>It’s all documented: <a href="https://github.com/junegunn/fzf" class="uri">https://github.com/junegunn/fzf</a></li>
+</ul></li>
+<li>For the adventurous: my <code>fzf</code> config
+<ul>
+<li><a href="https://github.com/jez/dotfiles/blob/d540b50/util/fzf.zsh" class="uri">https://github.com/jez/dotfiles/blob/d540b50/util/fzf.zsh</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="ag-the-silver-searcher" class="level1">
+<h1><code>ag</code>: The Silver Searcher</h1>
+<section id="ag-is-like-grep-but-for-humans" class="level2">
+<h2><code>ag</code> is like <code>grep</code> but for humans</h2>
+<ul>
+<li><code>ag</code> is similar to a tool called <code>ack</code>, but faster</li>
+<li><code>ag</code> is recursive by default
+<ul>
+<li>avoid having to always type <code>grep -r ...</code></li>
+</ul></li>
+<li><code>ag</code> groups results by file
+<ul>
+<li>makes it easier to see where the results are from</li>
+</ul></li>
+<li><code>ag</code> prints one line per source line
+<ul>
+<li><code>grep</code> will duplicate a line if there is more than one match in it</li>
+</ul></li>
+<li><code>ag</code> lets you search specific file types
+<ul>
+<li><code>ag --html --css --js</code> will search only HTML, CSS, and JavaScript files</li>
+<li><code>ag --cc</code> will search only <code>*.c</code> and <code>*.h</code> file types</li>
+</ul></li>
+</ul>
+</section>
+<section id="installing-learning" class="level2">
+<h2>Installing &amp; Learning</h2>
+<ul>
+<li>Install from your package manager
+<ul>
+<li>The package isn’t just called <code>ag</code></li>
+<li>See <a href="https://github.com/ggreer/the_silver_searcher#installing">here</a> for the name on your system</li>
+</ul></li>
+<li>Examples
+<ul>
+<li><code>ag foo</code>
+<ul>
+<li>searches recursively for “foo”</li>
+</ul></li>
+<li><code>ag --python main</code>
+<ul>
+<li>searches recursively for “main” in Python files</li>
+</ul></li>
+</ul></li>
+<li>Learn more about <code>ag</code>
+<ul>
+<li><code>ag --help</code></li>
+</ul></li>
+</ul>
+</section>
+</section>

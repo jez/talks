@@ -1,0 +1,237 @@
+<section id="we-have-lots-of-things-to-write." class="level2">
+<h2>We have lots of things to write.</h2>
+<p>We…</p>
+<ul>
+<li>write essays.</li>
+<li>typeset math &amp; computer science homework.</li>
+<li>make presentations.</li>
+<li>document our code.</li>
+<li>write blog posts.</li>
+<li>…</li>
+</ul>
+</section>
+<section id="lets-take-a-look-at-how-we-make-documents-right-now." class="level1">
+<h1>Let’s take a look at how we make documents right now.</h1>
+<section id="microsoft-word" class="level2">
+<h2>Microsoft Word</h2>
+<p>Pros:</p>
+<ul>
+<li>…</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>bloated</li>
+<li>expensive</li>
+<li>finicky</li>
+<li>proprietary</li>
+<li>can’t use Vim!</li>
+</ul>
+</section>
+<section id="latex" class="level2">
+<h2>LaTeX</h2>
+<p>Pros:</p>
+<ul>
+<li>plain text format</li>
+<li>open source compiler</li>
+<li>open source PDF viewers</li>
+<li>Crazy powerful</li>
+<li>“Least bad” solution for complex math</li>
+<li>Easy to generate PDFs</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Doesn’t optimize for the “common case”</li>
+<li>Lots of boilerplate</li>
+<li>Somewhat verbose</li>
+</ul>
+</section>
+<section id="html" class="level2">
+<h2>HTML</h2>
+<p>Pros:</p>
+<ul>
+<li>plain text format</li>
+<li>open source web browsers</li>
+<li>Website are super portable</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Same drawbacks as LaTeX:
+<ul>
+<li>Doesn’t optimize for the “common case”</li>
+<li>Lots of boilerplate</li>
+<li>Somewhat verbose</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="what-would-an-ideal-solution-be" class="level1">
+<h1>What would an “ideal” solution be?</h1>
+<section id="we-want" class="level2">
+<h2>We want…</h2>
+<ul>
+<li>an open format</li>
+<li>to use open source software</li>
+<li>to optimize for the “common case”</li>
+<li>something concise (not verbose)</li>
+<li>to make PDFs</li>
+<li>to write content for the web</li>
+</ul>
+</section>
+<section id="markdown-provides-a-happy-medium" class="level2">
+<h2>Markdown provides a “happy medium”</h2>
+<p>Pros:</p>
+<ul>
+<li>For simple documents, the syntax is simple</li>
+<li>Completely open</li>
+<li>Converters for generating HTML, PDFs, and more</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Doesn’t handle complex documents well</li>
+<li>No native way to handle math</li>
+<li>Syntax extensions differ with each implementation</li>
+</ul>
+</section>
+</section>
+<section id="getting-started-with-markdown" class="level1">
+<h1>Getting Started with Markdown</h1>
+<section id="there-are-lots-of-different-implementations" class="level2">
+<h2>There are lots of different implementations</h2>
+<ul>
+<li>Markdown.pl</li>
+<li>Github-Flavored Markdown</li>
+<li>Pandoc Markdown</li>
+<li>CommonMark</li>
+<li>… and many more</li>
+</ul>
+<p>Each supports the core syntax to some degree, and usually has some number of syntax extensions, which each implementation supports to varying degrees.</p>
+</section>
+<section id="learning-markdown-syntax" class="level2">
+<h2>Learning Markdown Syntax</h2>
+<p>If you only look at one guide:</p>
+<ul>
+<li><a href="http://commonmark.org/help/">CommonMark</a></li>
+</ul>
+<p>If you want to start comparing implementation differences:</p>
+<ul>
+<li><a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown</a></li>
+<li><a href="https://daringfireball.net/projects/markdown/">Markdown.pl</a></li>
+<li><a href="http://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a></li>
+</ul>
+</section>
+<section id="good-markdown-style" class="level2">
+<h2>Good Markdown Style</h2>
+<p>For readability:</p>
+<ul>
+<li>Put two newlines before a top-level heading</li>
+<li>Put one newline after any heading</li>
+<li>Hard wrap your lines (72 or 80 characters per line)
+<ul>
+<li>See Vim’s <code>gq</code> operator and <code>textwidth</code> setting</li>
+</ul></li>
+<li>Use reference-style links (<code>[link][href]</code> or <code>[link]</code>)</li>
+</ul>
+<p>To avoid confusion:</p>
+<ul>
+<li>Use hyphens for lists</li>
+<li>Use underscores for emphasis</li>
+</ul>
+<p>For consistency:</p>
+<ul>
+<li>Prefer spaces to tabs</li>
+<li>Use ATX-style headings (<code>#</code>, <code>##</code>, …)</li>
+<li>Use headings over bolded text on its own line</li>
+</ul>
+</section>
+</section>
+<section id="using-markdown-online" class="level1">
+<h1>Using Markdown Online</h1>
+<section id="github-uses-markdown-for-basically-everything" class="level2">
+<h2>GitHub uses Markdown for basically everything:</h2>
+<ul>
+<li>Your README</li>
+<li>Pull request and issue descriptions</li>
+<li>Comments</li>
+<li>Markdown files committed to your codebase</li>
+<li>Your repo’s wiki</li>
+<li>…</li>
+</ul>
+<p><em>(Demo)</em></p>
+</section>
+<section id="stackedit.io-is-a-great-markdown-editor" class="level2">
+<h2>StackEdit.io is a great Markdown editor</h2>
+<ul>
+<li><a href="https://stackedit.io" class="uri">https://stackedit.io</a></li>
+<li>Open source</li>
+<li>Web based</li>
+<li>Good for personal note taking</li>
+</ul>
+</section>
+</section>
+<section id="writing-at-the-command-line" class="level1">
+<h1>Writing at the Command Line</h1>
+<section id="previewing-github-markdown-with-grip1" class="level2">
+<h2>Previewing GitHub Markdown with <code>grip</code><span><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">GitHub Readme Instant Preview<br />
+<br />
+</span></span></h2>
+<p>To use:</p>
+<ul>
+<li>Install (<code>pip install grip</code>)</li>
+<li>Write a <code>README.md</code> file
+<ul>
+<li>… at the command line!</li>
+</ul></li>
+<li>Run <code>grip</code> from the same directory</li>
+</ul>
+</section>
+<section id="making-pdfs-with-markdown" class="level2">
+<h2>Making PDFs with Markdown</h2>
+<ul>
+<li>Install <code>pandoc</code> (i.e., <code>brew install pandoc</code>)</li>
+<li>Install LaTeX locally (i.e., <code>brew cask install mactex</code>)
+<ul>
+<li>… installing LaTeX takes a long time!</li>
+</ul></li>
+<li>Write a file like <code>written-sols.md</code></li>
+<li>Compile with <code>pandoc</code>:
+<ul>
+<li><code>pandoc written-sols.md -o written-sols.pdf</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="pandoc-is-a-veritable-swiss-army-knife" class="level2">
+<h2>Pandoc is a veritable Swiss Army Knife</h2>
+<p>Pandoc supports formatting your Markdown in lots of ways.</p>
+<p>I’ve compiled all the starter files I have lying around into one place:</p>
+<ul>
+<li><a href="https://github.com/jez/pandoc-starter" class="uri">https://github.com/jez/pandoc-starter</a></li>
+</ul>
+<p>Each comes with a README and a Makefile to compile the sample document.</p>
+</section>
+<section id="jekyll-lets-you-create-blogs-with-markdown" class="level2">
+<h2>Jekyll lets you create blogs with Markdown</h2>
+<pre class="console"><code>$ gem install bundler
+$ jekyll new my-awesome-site
+$ cd my-awesome-site
+$ bundle exec jekyll serve</code></pre>
+<p>You can write your page templates as HTML once, then write each post in Markdown.</p>
+<p>See more at <a href="https://jekyllrb.com" class="uri">https://jekyllrb.com</a>.</p>
+</section>
+<section id="some-extra-workflow-hacks" class="level2">
+<h2>Some extra workflow hacks</h2>
+<ul>
+<li>You can run <code>:make</code> in Vim to access your Makefile</li>
+<li>You can run <code>:make view</code> to compile the target named <code>view</code></li>
+<li>You can add this line to your vimrc to abbreviate this:
+<ul>
+<li><code>command! WV w | make view</code></li>
+<li>(i.e., save the file, then run <code>:make view</code>)</li>
+<li>to use: <code>:WV</code></li>
+</ul></li>
+<li>You can have Vim and your PDF previewer open in halves of your screen</li>
+</ul>
+<p>(<a href="http://blog.jez.io/2014/10/06/offline-latex-development/">More detailed instructions</a>)</p>
+<!-- vim:tw=60 softtabstop=4
+-->
+</section>
+</section>
