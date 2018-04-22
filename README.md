@@ -49,6 +49,9 @@ jekyll serve
 # Add a post (set the --date to when the talk was/will be given)
 octopress new post --date YYYY-MM-DD foo-bar
 
+# Publish changes to GitHub pages
+octopress deploy
+
 # To reset your PATH (i.e., to work on another project)
 deactivate
 ```
