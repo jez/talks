@@ -19,7 +19,6 @@ permalink: '/:categories/:slug/'
 markdown: Pandoc
 pandoc:
   extensions:
-    - smart
     - section-divs
     - from: 'markdown+tex_math_single_backslash'
     - filter: 'pandoc-sidenote'
