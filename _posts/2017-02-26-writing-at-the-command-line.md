@@ -26,4 +26,5 @@ convinced yourself *to write*, the next question becomes *how to write*. Writing
 at the Command Line introduces a handful of workflows, tools, and suggestions
 for writing in plain text, with a particular emphasis on Markdown.
 
-- [Writing at the Command Line](../slides/writing-cli.pdf)
+- [Slides](../slides/writing-cli/writing-cli.pdf)
+- [Source](https://github.com/jez/talks/tree/master/slides/writing-cli)

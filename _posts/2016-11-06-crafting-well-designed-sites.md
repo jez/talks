@@ -15,6 +15,7 @@ rules for improving the design of print and digital text, followed by an
 interactive "design critique" where the participants sketched their ideas and we
 discussed what we liked and didn't like about various designs.
 
-- [Crafting Well-Designed Sites](../slides/crafting-well-designed-sites.pdf)
+- [Slides](../slides/crafting-well-designed-sites/crafting-well-designed-sites.pdf)
+- [Source](https://github.com/jez/talks/tree/master/slides/crafting-well-designed-sites)
 
 [Frontend JavaScript Primer]: {{ site.baseurl }}/{% post_url 2014-09-04-frontend-javascript-primer %}
