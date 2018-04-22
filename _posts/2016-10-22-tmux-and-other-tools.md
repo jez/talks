@@ -12,5 +12,6 @@ In particular, we explore package managers, `tmux`, `fzf`, and `ag`. These
 programs blew my mind the first time I discovered them, and I enjoy being able
 to share them with others.
 
-- [Slides](../slides/tmux-and-other-tools/tmux-and-other-tools.pdf)
-- [Source](https://github.com/jez/talks/tree/master/slides/tmux-and-other-tools)
+- [Tmux & Other Tools](../slides/tmux-and-other-tools/tmux-and-other-tools.pdf)
+- [Markdown sources (GitHub)](https://github.com/jez/talks/tree/master/slides/tmux-and-other-tools)
+

@@ -15,6 +15,6 @@ reviewing old material and introducing new material. Topics introduced include
 shell IO redirection, crafting bash oneliners iteratively, and some common tools
 that compose well in oneliners.
 
-- [Slides](../slides/oneliners/oneliners.pdf)
-- [Source](https://github.com/jez/talks/tree/master/slides/oneliners)
+- [Oneliners](../slides/oneliners/oneliners.pdf)
+- [Markdown sources (GitHub)](https://github.com/jez/talks/tree/master/slides/oneliners)
 
