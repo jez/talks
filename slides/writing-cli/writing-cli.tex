@@ -1,0 +1,121 @@
+\documentclass[12pt,ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Avenir}
+    \setmonofont[Mapping=tex-ansi]{Menlo}
+\fi
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Writing at the\\Command Line},
+            pdfauthor={Jake Zimmerman},
+            pdfborder={0 0 0},
+            breaklinks=true}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\usepackage{pandoc-solarized}
+\input{beamer-includes}
+
+\title{Writing at the Command Line}
+\author{Jake Zimmerman}
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{We have lots of things to say.}
+
+We\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  write essays.
+\item
+  typeset math \& computer science homework.
+\item
+  make presentations.
+\item
+  document our code.
+\item
+  write blog entries.
+\item
+  \ldots{}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+
+\Huge{Let's take a look at how we make documents right now.}
+
+\end{frame}
+
+\begin{frame}{Microsoft Word}
+
+\begin{itemize}
+\tightlist
+\item
+  Microsoft Word is bloated, expensive, finicky, proprietary, \ldots{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    it doesn't even let you use Vim!
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}

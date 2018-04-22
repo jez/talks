@@ -1,0 +1,487 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Avenir}
+    \setmonofont[Mapping=tex-ansi]{Menlo}
+\fi
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\usepackage{pandoc-solarized}
+\input{beamer-includes}
+
+\title{Oneliners}
+\author{Jake Zimmerman}
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Review}\label{review}
+
+\begin{frame}[fragile]{We can define variables in bash}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# set my_variable to the string "hello"}
+\CommentTok{# (no spaces around the '=')}
+\NormalTok{$ }\OtherTok{my_variable=}\StringTok{"hello"}
+
+\CommentTok{# get the value of my_variable and print it}
+\NormalTok{$ }\KeywordTok{echo} \OtherTok{$my_variable}
+\NormalTok{hello}
+
+\CommentTok{# print another_var surrounded by other text}
+\NormalTok{$ }\OtherTok{another_var=}\StringTok{"some string"}
+\NormalTok{$ }\KeywordTok{echo} \NormalTok{lone}\OtherTok{$\{another_var\}}\NormalTok{s}
+\NormalTok{lonesome }\KeywordTok{strings}
+
+\CommentTok{# Sometimes using \{...\} is important:}
+\NormalTok{$ }\KeywordTok{echo} \NormalTok{lone}\OtherTok{$another_vars}
+\NormalTok{lone}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Quotes can be used to group arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  No quotes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    spaces separate arguments
+  \end{itemize}
+\item
+  Single or double quotes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    entire quoted argument is one argument
+  \item
+    spaces inside don't break it up
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Quotes are optional sometimes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Unquoted strings are still strings}
+\NormalTok{$ }\KeywordTok{echo} \NormalTok{hello}
+\NormalTok{hello}
+
+\CommentTok{# Quoted strings are strings}
+\NormalTok{$ }\KeywordTok{echo} \StringTok{'hello'}
+\NormalTok{hello}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Quotes aren't optional with special characters}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Unquoted special characters are shell expanded}
+\NormalTok{$ }\KeywordTok{echo} \NormalTok{*}
+\NormalTok{file1.txt folder}
+
+\CommentTok{# Quoted special characters aren't expanded}
+\NormalTok{$ }\KeywordTok{echo} \StringTok{"*"}
+\NormalTok{*}
+
+\CommentTok{# ...unless the special character is a '$'}
+\NormalTok{$ }\KeywordTok{echo} \StringTok{"}\OtherTok{$my_variable}\StringTok{"}
+\NormalTok{hello}
+
+\CommentTok{# ...in which case we can use single quotes}
+\NormalTok{$ }\KeywordTok{echo} \StringTok{'$my_variable'}
+\OtherTok{$my_variable}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{We don't \emph{have} to quote; we can escape}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We can use '\textbackslash{}' to escape special characters}
+\NormalTok{$ }\KeywordTok{echo} \DataTypeTok{\textbackslash{}*}
+\NormalTok{*}
+
+\CommentTok{# Escaping and quoting compound on each other}
+\CommentTok{# (Sometimes this is what we want)}
+\NormalTok{$ }\KeywordTok{echo} \StringTok{"\textbackslash{}*"}
+\DataTypeTok{\textbackslash{}*}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Understand the difference between globs and
+regex}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grep} \NormalTok{homework_problem}\KeywordTok{(.}\NormalTok{*}\KeywordTok{)} \NormalTok{homework.py}
+\CommentTok{#                      ^}
+\CommentTok{# This is a special shell character!}
+\CommentTok{# We need to quote or escape it.}
+
+\KeywordTok{grep} \StringTok{'homework_problem(.*)'} \NormalTok{homework.py}
+\CommentTok{#                       ^}
+\CommentTok{# It's quoted now--we're good.}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\section{Input \& Output}\label{input-output}
+
+\begin{frame}[fragile]{\texttt{stdin}, \texttt{stdout}, \texttt{stderr}}
+
+\begin{itemize}
+\tightlist
+\item
+  Each process\ldots{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    can listen for text input on \texttt{stdin} (standard input)
+  \item
+    can output ``normal'' text on \texttt{stdout} (standard output)
+  \item
+    can output ``error'' text on \texttt{stderr} (standard error)
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Redirection}
+
+\begin{itemize}
+\tightlist
+\item
+  Normally \texttt{stdin} is the keyboard, and \texttt{stdout} \&
+  \texttt{stderr} are the terminal
+\item
+  We can change this
+
+  \begin{itemize}
+  \tightlist
+  \item
+    We Have The Technology™
+  \end{itemize}
+\end{itemize}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Syntax & Meaning\tabularnewline
+\midrule
+\endhead
+\texttt{command\ \textless{}\ file.txt} & \texttt{stdin} from
+\texttt{file.txt}\tabularnewline
+\texttt{command\ \textgreater{}\ file.txt} & \texttt{stdout} to
+\texttt{file.txt} (overwrite)\tabularnewline
+\texttt{command\ \textgreater{}\textgreater{}\ file.txt} &
+\texttt{stdout} to \texttt{file.txt} (append)\tabularnewline
+\texttt{command\ 2\textgreater{}\ file.txt} & \texttt{stderr} to
+\texttt{file.txt} (overwrite)\tabularnewline
+\texttt{command\ 2\textgreater{}\textgreater{}\ file.txt} &
+\texttt{stderr} to \texttt{file.txt} (append)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{/dev/null} is a ``black hole'' file}
+
+\begin{itemize}
+\tightlist
+\item
+  Anything sent to \texttt{/dev/null} is thrown away
+\item
+  Anything read from \texttt{/dev/null} is empty
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Pipes send \texttt{stdout} of one command to
+\texttt{stdin} of another}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Disclaimer: this is a toy example.}
+
+\CommentTok{# We normally run grep like this:}
+\KeywordTok{grep} \NormalTok{TODO *}
+
+\CommentTok{# But if we give grep no arguments, it}
+\CommentTok{# will search on stdin. So we can do}
+\CommentTok{# this equivalent command}
+\KeywordTok{cat} \NormalTok{* }\KeywordTok{|} \KeywordTok{grep} \NormalTok{TODO}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\section{Oneliners}\label{oneliners}
+
+\begin{frame}[fragile]{Oneliners are chains of pipes}
+
+\begin{itemize}
+\tightlist
+\item
+  We start with some sort of data
+\item
+  Then we filter it down
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Example}
+\NormalTok{$ }\KeywordTok{du} \NormalTok{-h d1 }\KeywordTok{|} \KeywordTok{sort} \NormalTok{-hr}
+\CommentTok{# ^          ^}
+\CommentTok{# |          |}
+\CommentTok{# |          `- And feed it to this command (filter)}
+\CommentTok{# `- Take the stdout of this command (initial data)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Useful commands}
+
+\begin{itemize}
+\tightlist
+\item
+  Old:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{sed}
+  \item
+    \texttt{grep}
+  \end{itemize}
+\item
+  New:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{find}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{-name}
+    \item
+      \texttt{-regex}
+    \end{itemize}
+  \item
+    \texttt{curl}
+  \item
+    \texttt{xargs}
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Examples}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Open all PDF files not named written.pdf}
+\KeywordTok{find} \KeywordTok{.} \NormalTok{-name }\StringTok{"*pdf"} \KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{grep} \NormalTok{-v }\StringTok{"written.pdf"} \KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{xargs} \NormalTok{open}
+
+\CommentTok{# Get 100 random lowercase dictionary words}
+\NormalTok{shuf /usr/share/dict/words }\KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{head} \NormalTok{-n 100 }\KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{tr} \StringTok{'[A-Z]'} \StringTok{'[a-z]'} \KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{sort}
+
+\CommentTok{# Count how many times it says "Vim" on a page}
+\NormalTok{curl https://jez.io }\KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{grep} \NormalTok{--only-matching Vim }\KeywordTok{\textbackslash{}}
+  \KeywordTok{|} \KeywordTok{wc} \NormalTok{-l}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\section{Recap}\label{recap}
+
+\begin{frame}{Tips for Writing Oneliners}
+
+\begin{itemize}
+\tightlist
+\item
+  Construct oneliners iteratively!
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Try the first command, see what it outputs
+  \item
+    Try the first two commands, see what they output
+  \item
+    \ldots{}
+  \end{itemize}
+\item
+  Many tools do the same thing
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Choose what you're familiar with
+  \end{itemize}
+\item
+  Some tools are subtly different
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For example, not all commands have the same regex syntax
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{More resources}
+
+\begin{itemize}
+\tightlist
+\item
+  Google is great for finding the \emph{filtering} commands
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``Strings that don't match\ldots{}''
+  \item
+    ``Sum a list of numbers''
+  \item
+    ``Replace character with newline''
+  \end{itemize}
+\item
+  \ldots{} but don't just run what people tell you!
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{man} pages
+  \item
+    \url{http://explainshell.com}
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
