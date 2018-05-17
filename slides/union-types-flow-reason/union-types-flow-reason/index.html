@@ -2,19 +2,19 @@
 <h1>Union types are Powerful!</h1>
 <section id="union-types-an-example" class="level2">
 <h2>Union Types: An Example</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1">type A <span class="op">=</span> <span class="st">&#39;A&#39;</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">type B <span class="op">=</span> <span class="st">&#39;B&#39;</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">type AorB <span class="op">=</span> A <span class="op">|</span> B<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">const</span> whichBranch <span class="op">=</span> (x<span class="op">:</span> AorB)<span class="op">:</span> string <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="cf">switch</span> (<span class="va">x</span>.<span class="at">tag</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="cf">case</span> <span class="st">&#39;A&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">      <span class="cf">return</span> <span class="st">&quot;In branch A&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="cf">case</span> <span class="st">&#39;B&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">      <span class="cf">return</span> <span class="st">&quot;In branch B&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">default</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">      (<span class="va">x</span>.<span class="at">tag</span><span class="op">:</span> empty)<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;impossible&#39;</span>)<span class="op">;</span></a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">const</span> impossible <span class="op">=</span> <span class="op">&lt;</span>T<span class="op">&gt;</span>(x<span class="op">:</span> empty)<span class="op">:</span> T <span class="op">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;impossible!&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">type AorB <span class="op">=</span> <span class="st">&#39;A&#39;</span> <span class="op">|</span> <span class="st">&#39;B&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">const</span> whichBranch <span class="op">=</span> (x<span class="op">:</span> AorB)<span class="op">:</span> string <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="cf">switch</span> (x) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="cf">case</span> <span class="st">&#39;A&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">      <span class="cf">return</span> <span class="st">&quot;In branch A&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="cf">case</span> <span class="st">&#39;B&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">      <span class="cf">return</span> <span class="st">&quot;In branch B&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="cf">return</span> <span class="at">impossible</span>(x)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1-14" data-line-number="14">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb1-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
 </section>
@@ -42,13 +42,18 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1">type Screen <span class="op">=</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="op">|</span> <span class="st">&#39;LoadingScreen&#39;</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="op">|</span> <span class="st">&#39;CodeEntryScreen&#39;</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="op">|</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="op">|</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">type State <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="dt">screen</span><span class="op">:</span> Screen<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="op">};</span></a></code></pre></div>
 <p>Benefits to using a union type:</p>
 <ul>
-<li>Documentation in the types</li>
-<li>Developers (and our compiler) immediately know:<br />
+<li>Documentation in the types:<br />
 “These are <strong>all</strong> the cases.”</li>
-<li>Flow can warn us when we’ve forgotten a case</li>
+<li>More information for the compiler!<br />
+Flow can warn us when we’ve forgotten a case.</li>
 </ul>
 </section>
 <section id="initial-feedback-add-a-cancel-button" class="level2">
@@ -64,7 +69,35 @@
 <a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="co">// Recall: &#39;SuccessScreen&#39; is final, so it doesn&#39;t</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="co">// make sense to have a cancel button.</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="cf">return</span> screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="op">};</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"></a></code></pre></div>
+</section>
+<section id="needscancelbutton-initial-implementation-1" class="level2">
+<h2><code>needsCancelButton</code>: Initial Implementation</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="co">// Recall: &#39;SuccessScreen&#39; is final, so it doesn&#39;t</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="co">// make sense to have a cancel button.</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="cf">return</span> screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="at">needsCancelButton</span>(<span class="kw">this</span>.<span class="va">state</span>.<span class="at">screen</span>) <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="op">&lt;</span>CancelButton onClick<span class="op">={</span><span class="kw">this</span>.<span class="at">handleClick</span><span class="op">}</span> /&gt;</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="co">// Look at this.state.screen, then</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="co">// render &lt;LoadingScreen /&gt;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">  <span class="co">// ... OR &lt;CodeEntryScreen /&gt;</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="co">// ... OR &lt;SuccessScreen /&gt;</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
 </section>
 <section id="adding-a-failurescreen" class="level2">
 <h2>Adding a <code>'FailureScreen'</code></h2>
@@ -74,49 +107,82 @@
 </section>
 <section id="our-updated-screen-type" class="level2">
 <h2>Our Updated <code>Screen</code> Type</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1">type Screen <span class="op">=</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="op">|</span> <span class="st">&#39;LoadingScreen&#39;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="op">|</span> <span class="st">&#39;CodeEntryScreen&#39;</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="op">|</span> <span class="st">&#39;SuccessScreen&#39;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="co">// New case to handle too many wrong attempts:</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="op">|</span> <span class="st">&#39;FailureScreen&#39;</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1">type Screen <span class="op">=</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="op">|</span> <span class="st">&#39;LoadingScreen&#39;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="op">|</span> <span class="st">&#39;CodeEntryScreen&#39;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="op">|</span> <span class="st">&#39;SuccessScreen&#39;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="co">// New case to handle too many wrong attempts:</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="op">|</span> <span class="st">&#39;FailureScreen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"></a></code></pre></div>
 </section>
-<section id="oh-no-a-bug" class="level2">
-<h2>Oh no! A bug!</h2>
-<p>After changing the type, we update our code. But in particular, say we forget to update <code>needsCancelButton</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="cf">return</span> screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="op">};</span></a></code></pre></div>
-<p>When we save and run Flow… it passes! Flow couldn’t warn us that <code>needsCancelButton</code> doesn’t account for the case we added.</p>
-<p>Thus: a silent bug! (There shouldn’t be a cancel button on <code>'FailureScreen'</code>, but there is.)</p>
+<section id="our-updated-screen-type-1" class="level2">
+<h2>Our Updated <code>Screen</code> Type</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1">type Screen <span class="op">=</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="op">|</span> <span class="st">&#39;LoadingScreen&#39;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="op">|</span> <span class="st">&#39;CodeEntryScreen&#39;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="op">|</span> <span class="st">&#39;SuccessScreen&#39;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="co">// New case to handle too many wrong attempts:</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="op">|</span> <span class="st">&#39;FailureScreen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="co">// Look at this.state.screen, then</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="co">// render &lt;LoadingScreen /&gt;</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">  <span class="co">// ... OR &lt;CodeEntryScreen /&gt;</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">  <span class="co">// ... OR &lt;SuccessScreen /&gt;</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">  <span class="co">// ... OR &lt;FailureScreen /&gt;</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
+</section>
+<section id="wait-whats-that-cancel-button-doing-there" class="level2">
+<h2>Wait, what’s that cancel button doing there?</h2>
+
+<p><img src="2fa-failure-screen-close-btn.png" alt="There’s a cancel button on our FailureScreen!" style="width:33.0%" /><br />
+</p>
+</section>
+<section id="we-forgot-to-update-needscancelbutton" class="level2">
+<h2>We forgot to update <code>needsCancelButton</code></h2>
+<p>There shouldn’t have been a cancel button on <code>'FailureScreen'</code>.</p>
+<p>Ideally, Flow tells us all places that need to be updated when adding a new case.</p>
+<p>This time, Flow <strong>couldn’t</strong> warn us that our function needed to be updated:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="cf">return</span> screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="op">};</span></a></code></pre></div>
 </section>
 <section id="first-reaction-just-fix-the-bug." class="level2">
 <h2>First reaction: just fix the bug.</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="cf">return</span> (</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">    screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span> <span class="op">||</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">    screen <span class="op">!==</span> <span class="st">&#39;FailureScreen&#39;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">  )<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span> <span class="op">||</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    screen <span class="op">!==</span> <span class="st">&#39;FailureScreen&#39;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="op">};</span></a></code></pre></div>
 <p>But we can do better! Let’s <strong>prevent future bugs</strong> from happening…</p>
 </section>
 <section id="switch-taking-advantage-of-exhaustiveness" class="level2">
 <h2><code>switch</code>: Taking Advantage of Exhaustiveness</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="cf">switch</span> (screen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="cf">case</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="cf">case</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="cf">case</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="dt">default</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">      <span class="co">// [flow]: Error: Cannot call `absurd` with</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">      <span class="co">// `screen` bound to `x` because string literal</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">      <span class="co">// `FailureScreen` is incompatible with empty</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">      <span class="cf">return</span> <span class="at">absurd</span>(screen)<span class="op">;</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> Screen)<span class="op">:</span> boolean <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="cf">switch</span> (screen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="cf">case</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    <span class="cf">case</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="cf">case</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="dt">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">      <span class="co">// [flow]: Error: Cannot call `impossible` with</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">      <span class="co">// `screen` bound to `x` because string literal</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">      <span class="co">// `FailureScreen` is incompatible with empty</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">      <span class="cf">return</span> <span class="at">impossible</span>(screen)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="op">}</span></a></code></pre></div>
 </section>
 <section id="takeaway-only-use-union-types-with-switch" class="level2">
 <h2>Takeaway: Only use union types with <code>switch</code>!</h2>
@@ -128,41 +194,41 @@ Flow <strong>can’t tell us</strong> when we’re missing something.</p>
 </section>
 <section id="correctness-but-at-what-cost" class="level2">
 <h2>Correctness, but at what cost?</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// ----- before: 62 bytes (minified) -----</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen) <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="cf">return</span> screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="op">};</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"> </a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// ----- before: 62 bytes (minified) -----</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen) <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="cf">return</span> screen <span class="op">!==</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16"> </a></code></pre></div>
 </section>
 <section id="correctness-but-at-what-cost-1" class="level2">
 <h2>Correctness, but at what cost?</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// ----- after: 240 bytes (minified) -----</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">const</span> absurd <span class="op">=</span> (x) <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;This case is impossible.&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="op">};</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen) <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="cf">switch</span> (screen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="cf">case</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="cf">case</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="cf">case</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">    <span class="dt">default</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">      <span class="cf">return</span> <span class="at">absurd</span>(screen)<span class="op">;</span></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// ----- after: 240 bytes (minified) -----</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">const</span> impossible <span class="op">=</span> (x) <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;This case is impossible.&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">const</span> needsCancelButton <span class="op">=</span> (screen) <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="cf">switch</span> (screen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="cf">case</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">    <span class="cf">case</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">    <span class="cf">case</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">    <span class="dt">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">      <span class="cf">return</span> <span class="at">impossible</span>(screen)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="op">};</span></a></code></pre></div>
 </section>
 <section id="correctness-at-the-cost-of-bundle-size" class="level2">
 <h2>Correctness, at the cost of bundle size!</h2>
@@ -206,18 +272,18 @@ Flow <strong>can’t tell us</strong> when we’re missing something.</p>
 </section>
 <section id="needscancelbutton-in-reason" class="level2">
 <h2><code>needsCancelButton</code> in Reason</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1">type screen <span class="op">=</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="op">|</span> LoadingScreen</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="op">|</span> CodeEntryScreen</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="op">|</span> SuccessScreen<span class="op">;</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="kw">let</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> screen)<span class="op">:</span> bool <span class="op">=&gt;</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="cf">switch</span> (screen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="op">|</span> LoadingScreen <span class="op">=&gt;</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">  <span class="op">|</span> CodeEntryScreen <span class="op">=&gt;</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10">  <span class="op">|</span> SuccessScreen <span class="op">=&gt;</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1">type screen <span class="op">=</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="op">|</span> LoadingScreen</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="op">|</span> CodeEntryScreen</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="op">|</span> SuccessScreen<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">let</span> needsCancelButton <span class="op">=</span> (screen<span class="op">:</span> screen)<span class="op">:</span> bool <span class="op">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">  <span class="cf">switch</span> (screen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="op">|</span> LoadingScreen <span class="op">=&gt;</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">  <span class="op">|</span> CodeEntryScreen <span class="op">=&gt;</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">  <span class="op">|</span> SuccessScreen <span class="op">=&gt;</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="op">};</span></a></code></pre></div>
 </section>
 <section id="reason-looks-pretty-familiar" class="level2">
 <h2>Reason looks pretty familiar!</h2>
@@ -231,25 +297,25 @@ Flow <strong>can’t tell us</strong> when we’re missing something.</p>
 </section>
 <section id="reasons-generated-code" class="level2">
 <h2>Reason’s Generated Code</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// Generated by BUCKLESCRIPT VERSION 3.0.1</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">&#39;use strict&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">function</span> <span class="at">needsCancelButton</span>(status) <span class="op">{</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="cf">if</span> (status <span class="op">!==</span> <span class="dv">2</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="op">}</span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">// ---------------------------------------</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">// Generated by BUCKLESCRIPT VERSION 3.0.1</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">&#39;use strict&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="kw">function</span> <span class="at">needsCancelButton</span>(status) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="cf">if</span> (status <span class="op">!==</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="op">}</span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="co">// ---------------------------------------</span></a></code></pre></div>
 <p>Entire <code>switch</code> statement optimized down to a single <code>if</code>! <code>'SuccessScreen'</code> shortened to <code>2</code>!</p>
 </section>
 <section id="reasons-generated-code-uglify" class="level2">
 <h2>Reason’s Generated Code + <code>uglify</code></h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">function</span> <span class="at">needsCancelButton</span>(n)<span class="op">{</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="cf">return</span> <span class="op">!</span>(n<span class="op">&gt;=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">function</span> <span class="at">needsCancelButton</span>(n)<span class="op">{</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="cf">return</span> <span class="op">!</span>(n<span class="op">&gt;=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
 <p>Uglify can shorten it even further: no <code>if</code> statement!</p>
 <p>This is <strong>even better</strong> than our hand-written implementation.</p>
 <p>Yet, we <strong>didn’t sacrifice</strong> safety or readability!</p>
@@ -269,72 +335,72 @@ Flow <strong>can’t tell us</strong> when we’re missing something.</p>
 <section id="typescript" class="level2">
 <h2>TypeScript</h2>
 
-<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">var</span> Screen_<span class="op">;</span> (<span class="kw">function</span> (Screen_) <span class="op">{</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">    Screen_[Screen_[<span class="st">&quot;LoadingScreen&quot;</span>] <span class="op">=</span> <span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;LoadingScreen&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">    Screen_[Screen_[<span class="st">&quot;CodeEntryScreen&quot;</span>] <span class="op">=</span> <span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;CodeEntryScreen&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">    Screen_[Screen_[<span class="st">&quot;SuccessScreen&quot;</span>] <span class="op">=</span> <span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;SuccessScreen&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="op">}</span>)(Screen_ <span class="op">||</span> (Screen_ <span class="op">=</span> <span class="op">{}</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="kw">var</span> impossible <span class="op">=</span> <span class="kw">function</span> (x) <span class="op">{</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;This case is impossible.&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="op">};</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="kw">var</span> needsCancelButton <span class="op">=</span> <span class="kw">function</span> (screen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10">    <span class="cf">switch</span> (screen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb13-11" data-line-number="11">        <span class="cf">case</span> <span class="va">Screen_</span>.<span class="at">LoadingScreen</span><span class="op">:</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-12" data-line-number="12">        <span class="cf">case</span> <span class="va">Screen_</span>.<span class="at">CodeEntryScreen</span><span class="op">:</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-13" data-line-number="13">        <span class="cf">case</span> <span class="va">Screen_</span>.<span class="at">SuccessScreen</span><span class="op">:</span> <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb13-14" data-line-number="14">        <span class="dt">default</span><span class="op">:</span> <span class="cf">return</span> <span class="at">impossible</span>(screen)<span class="op">;</span></a>
-<a class="sourceLine" id="cb13-15" data-line-number="15">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">var</span> Screen_<span class="op">;</span> (<span class="kw">function</span> (Screen_) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">    Screen_[Screen_[<span class="st">&quot;LoadingScreen&quot;</span>] <span class="op">=</span> <span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;LoadingScreen&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">    Screen_[Screen_[<span class="st">&quot;CodeEntryScreen&quot;</span>] <span class="op">=</span> <span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;CodeEntryScreen&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">    Screen_[Screen_[<span class="st">&quot;SuccessScreen&quot;</span>] <span class="op">=</span> <span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;SuccessScreen&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="op">}</span>)(Screen_ <span class="op">||</span> (Screen_ <span class="op">=</span> <span class="op">{}</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="kw">var</span> impossible <span class="op">=</span> <span class="kw">function</span> (x) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;This case is impossible.&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="op">};</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="kw">var</span> needsCancelButton <span class="op">=</span> <span class="kw">function</span> (screen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">    <span class="cf">switch</span> (screen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">        <span class="cf">case</span> <span class="va">Screen_</span>.<span class="at">LoadingScreen</span><span class="op">:</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">        <span class="cf">case</span> <span class="va">Screen_</span>.<span class="at">CodeEntryScreen</span><span class="op">:</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">        <span class="cf">case</span> <span class="va">Screen_</span>.<span class="at">SuccessScreen</span><span class="op">:</span> <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">        <span class="dt">default</span><span class="op">:</span> <span class="cf">return</span> <span class="at">impossible</span>(screen)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="op">};</span></a></code></pre></div>
 </section>
 <section id="purescript" class="level2">
 <h2>PureScript</h2>
 
-<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">var</span> LoadingScreen <span class="op">=</span> (<span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">    <span class="kw">function</span> <span class="at">LoadingScreen</span>() <span class="op">{};</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">    <span class="va">LoadingScreen</span>.<span class="at">value</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">LoadingScreen</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">    <span class="cf">return</span> LoadingScreen<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="op">}</span>)()<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">var</span> CodeEntryScreen <span class="op">=</span> (<span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">    <span class="kw">function</span> <span class="at">CodeEntryScreen</span>() <span class="op">{};</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">    <span class="va">CodeEntryScreen</span>.<span class="at">value</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">CodeEntryScreen</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">    <span class="cf">return</span> CodeEntryScreen<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="op">}</span>)()<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="kw">var</span> SuccessScreen <span class="op">=</span> (<span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">    <span class="kw">function</span> <span class="at">SuccessScreen</span>() <span class="op">{};</span></a>
-<a class="sourceLine" id="cb14-14" data-line-number="14">    <span class="va">SuccessScreen</span>.<span class="at">value</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">SuccessScreen</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15">    <span class="cf">return</span> SuccessScreen<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="op">}</span>)()<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-17" data-line-number="17"><span class="kw">var</span> needsCancelButton <span class="op">=</span> <span class="kw">function</span> (v) <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-18" data-line-number="18">    <span class="cf">if</span> (v <span class="kw">instanceof</span> LoadingScreen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-19" data-line-number="19">        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb14-20" data-line-number="20">    <span class="op">};</span></a>
-<a class="sourceLine" id="cb14-21" data-line-number="21">    <span class="cf">if</span> (v <span class="kw">instanceof</span> CodeEntryScreen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-22" data-line-number="22">        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb14-23" data-line-number="23">    <span class="op">};</span></a>
-<a class="sourceLine" id="cb14-24" data-line-number="24">    <span class="cf">if</span> (v <span class="kw">instanceof</span> SuccessScreen) <span class="op">{</span></a>
-<a class="sourceLine" id="cb14-25" data-line-number="25">        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb14-26" data-line-number="26">    <span class="op">};</span></a>
-<a class="sourceLine" id="cb14-27" data-line-number="27">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Failed pattern match at Main line 10, column 1&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb14-28" data-line-number="28"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">var</span> LoadingScreen <span class="op">=</span> (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="kw">function</span> <span class="at">LoadingScreen</span>() <span class="op">{};</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="va">LoadingScreen</span>.<span class="at">value</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">LoadingScreen</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">    <span class="cf">return</span> LoadingScreen<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="op">}</span>)()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="kw">var</span> CodeEntryScreen <span class="op">=</span> (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">    <span class="kw">function</span> <span class="at">CodeEntryScreen</span>() <span class="op">{};</span></a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">    <span class="va">CodeEntryScreen</span>.<span class="at">value</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">CodeEntryScreen</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">    <span class="cf">return</span> CodeEntryScreen<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="op">}</span>)()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-12" data-line-number="12"><span class="kw">var</span> SuccessScreen <span class="op">=</span> (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-13" data-line-number="13">    <span class="kw">function</span> <span class="at">SuccessScreen</span>() <span class="op">{};</span></a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">    <span class="va">SuccessScreen</span>.<span class="at">value</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">SuccessScreen</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-15" data-line-number="15">    <span class="cf">return</span> SuccessScreen<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-16" data-line-number="16"><span class="op">}</span>)()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-17" data-line-number="17"><span class="kw">var</span> needsCancelButton <span class="op">=</span> <span class="kw">function</span> (v) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-18" data-line-number="18">    <span class="cf">if</span> (v <span class="kw">instanceof</span> LoadingScreen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-19" data-line-number="19">        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb16-20" data-line-number="20">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-21" data-line-number="21">    <span class="cf">if</span> (v <span class="kw">instanceof</span> CodeEntryScreen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-22" data-line-number="22">        <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb16-23" data-line-number="23">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-24" data-line-number="24">    <span class="cf">if</span> (v <span class="kw">instanceof</span> SuccessScreen) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-25" data-line-number="25">        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb16-26" data-line-number="26">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-27" data-line-number="27">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Failed pattern match at Main line 10, column 1&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-28" data-line-number="28"><span class="op">};</span></a></code></pre></div>
 </section>
 <section id="elm" class="level2">
 <h2>Elm</h2>
 
-<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">var</span> _user$project$Main$needsCancelButton <span class="op">=</span> <span class="kw">function</span> (page) <span class="op">{</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="kw">var</span> _p0 <span class="op">=</span> page<span class="op">;</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="cf">switch</span> (<span class="va">_p0</span>.<span class="at">ctor</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="cf">case</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">    <span class="cf">case</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8">    <span class="dt">default</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb15-9" data-line-number="9">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="op">};</span></a>
-<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="kw">var</span> _user$project$Main$SuccessScreen <span class="op">=</span> <span class="op">{</span><span class="dt">ctor</span><span class="op">:</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">};</span></a>
-<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="kw">var</span> _user$project$Main$CodeEntryScreen <span class="op">=</span> <span class="op">{</span><span class="dt">ctor</span><span class="op">:</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">};</span></a>
-<a class="sourceLine" id="cb15-14" data-line-number="14"><span class="kw">var</span> _user$project$Main$LoadingScreen <span class="op">=</span> <span class="op">{</span><span class="dt">ctor</span><span class="op">:</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">var</span> _user$project$Main$needsCancelButton <span class="op">=</span> <span class="kw">function</span> (page) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="kw">var</span> _p0 <span class="op">=</span> page<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">  <span class="cf">switch</span> (<span class="va">_p0</span>.<span class="at">ctor</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">    <span class="cf">case</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">    <span class="cf">case</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">    <span class="dt">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb17-10" data-line-number="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-11" data-line-number="11"><span class="op">};</span></a>
+<a class="sourceLine" id="cb17-12" data-line-number="12"><span class="kw">var</span> _user$project$Main$SuccessScreen <span class="op">=</span> <span class="op">{</span><span class="dt">ctor</span><span class="op">:</span> <span class="st">&#39;SuccessScreen&#39;</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb17-13" data-line-number="13"><span class="kw">var</span> _user$project$Main$CodeEntryScreen <span class="op">=</span> <span class="op">{</span><span class="dt">ctor</span><span class="op">:</span> <span class="st">&#39;CodeEntryScreen&#39;</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb17-14" data-line-number="14"><span class="kw">var</span> _user$project$Main$LoadingScreen <span class="op">=</span> <span class="op">{</span><span class="dt">ctor</span><span class="op">:</span> <span class="st">&#39;LoadingScreen&#39;</span><span class="op">};</span></a></code></pre></div>
 </section>
 <section id="further-reading" class="level2">
 <h2>Further Reading</h2>
