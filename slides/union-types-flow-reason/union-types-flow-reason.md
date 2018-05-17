@@ -18,19 +18,19 @@ header-includes:
 ## Union Types: An Example
 
 ```js
-type A = 'A'
-type B = 'B'
-type AorB = A | B;
+const impossible = <T>(x: empty): T =>
+  throw new Error('impossible!');
+
+type AorB = 'A' | 'B';
 
 const whichBranch = (x: AorB): string => {
-  switch (x.tag) {
+  switch (x) {
     case 'A':
       return "In branch A";
     case 'B':
       return "In branch B";
     default:
-      (x.tag: empty);
-      throw new Error('impossible');
+      return impossible(x);
   }
 }
 ```
@@ -65,14 +65,19 @@ type Screen =
   | 'LoadingScreen'
   | 'CodeEntryScreen'
   | 'SuccessScreen';
+
+type State = {
+  // ...
+  screen: Screen,
+};
 ```
 
 Benefits to using a union type:
 
-- Documentation in the types
-- Developers (and our compiler) immediately know:\
+- Documentation in the types:\
   "These are **all** the cases."
-- Flow can warn us when we've forgotten a case
+- More information for the compiler!\
+  Flow can warn us when we've forgotten a case.
 
 
 ## Initial Feedback? Add a "cancel" button
@@ -93,6 +98,38 @@ const needsCancelButton = (screen: Screen): boolean => {
   // make sense to have a cancel button.
   return screen !== 'SuccessScreen';
 };
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+## `needsCancelButton`: Initial Implementation
+
+```js
+const needsCancelButton = (screen: Screen): boolean => {
+  // Recall: 'SuccessScreen' is final, so it doesn't
+  // make sense to have a cancel button.
+  return screen !== 'SuccessScreen';
+};
+
+render() {
+  needsCancelButton(this.state.screen) &&
+    <CancelButton onClick={this.handleClick} />
+
+  // Look at this.state.screen, then
+  // render <LoadingScreen />
+  // ... OR <CodeEntryScreen />
+  // ... OR <SuccessScreen />
+}
 ```
 
 ## Adding a `'FailureScreen'`
@@ -111,26 +148,62 @@ type Screen =
   | 'SuccessScreen'
   // New case to handle too many wrong attempts:
   | 'FailureScreen';
+
+
+
+
+
+
+
+
+
+
 ```
 
 
-## Oh no! A bug!
+## Our Updated `Screen` Type
 
-After changing the type, we update our code.
-But in particular, say we forget to update `needsCancelButton`:
+```js
+type Screen =
+  | 'LoadingScreen'
+  | 'CodeEntryScreen'
+  | 'SuccessScreen'
+  // New case to handle too many wrong attempts:
+  | 'FailureScreen';
+
+render() {
+  // ...
+  // Look at this.state.screen, then
+  // render <LoadingScreen />
+  // ... OR <CodeEntryScreen />
+  // ... OR <SuccessScreen />
+  // ... OR <FailureScreen />
+}
+```
+
+
+## Wait, what's that cancel button doing there?
+
+\centering
+
+![There's a cancel button on our FailureScreen!](2fa-failure-screen-close-btn.png){width=33%}\
+
+
+## We forgot to update `needsCancelButton`
+
+There shouldn't have been a cancel button on `'FailureScreen'`.
+
+Ideally, Flow tells us all places that need to be updated
+when adding a new case.
+
+This time, Flow **couldn't** warn us that our function
+needed to be updated:
 
 ```js
 const needsCancelButton = (screen: Screen): boolean => {
   return screen !== 'SuccessScreen';
 };
 ```
-
-When we save and run Flow... it passes!
-Flow couldn't warn us that `needsCancelButton` doesn't
-account for the case we added.
-
-Thus: a silent bug! (There shouldn't be a cancel button on
-`'FailureScreen'`, but there is.)
 
 
 ## First reaction: just fix the bug.
@@ -160,10 +233,10 @@ const needsCancelButton = (screen: Screen): boolean => {
     case 'SuccessScreen':
       return false;
     default:
-      // [flow]: Error: Cannot call `absurd` with
+      // [flow]: Error: Cannot call `impossible` with
       // `screen` bound to `x` because string literal
       // `FailureScreen` is incompatible with empty
-      return absurd(screen);
+      return impossible(screen);
   }
 }
 ```
@@ -208,7 +281,7 @@ const needsCancelButton = (screen) => {
 
 ```js
 // ----- after: 240 bytes (minified) -----
-const absurd = (x) => {
+const impossible = (x) => {
   throw new Error('This case is impossible.');
 };
 const needsCancelButton = (screen) => {
@@ -220,7 +293,7 @@ const needsCancelButton = (screen) => {
     case 'SuccessScreen':
       return false;
     default:
-      return absurd(screen);
+      return impossible(screen);
   }
 };
 ```
