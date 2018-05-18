@@ -16,3 +16,4 @@ Reason, so we talk about it the most.
 
 - [Union Types in Flow & Reason](../slides/union-types-flow-reason/union-types-flow-reason.pdf)
 - [Markdown sources (GitHub)](https://github.com/jez/talks/tree/master/slides/union-types-flow-reason)
+- [Video](https://www.youtube.com/watch?v=PAtZCvSmOhw)
