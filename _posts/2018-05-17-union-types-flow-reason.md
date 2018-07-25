@@ -14,6 +14,7 @@ the end, we compare Flow to other compile-to-JS languages on the basis of how
 they represent union types in the compiled output. I'm especially excited about
 Reason, so we talk about it the most.
 
-- [Union Types in Flow & Reason](../slides/union-types-flow-reason/union-types-flow-reason.pdf)
-- [Markdown sources (GitHub)](https://github.com/jez/talks/tree/master/slides/union-types-flow-reason)
 - [Video](https://www.youtube.com/watch?v=PAtZCvSmOhw)
+- [Slides](../slides/union-types-flow-reason/union-types-flow-reason.pdf)
+- [Blog post](https://blog.jez.io/union-types-flow-reason/)
+- [Markdown sources for slides (GitHub)](https://github.com/jez/talks/tree/master/slides/union-types-flow-reason)
