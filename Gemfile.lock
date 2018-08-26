@@ -58,7 +58,7 @@ GEM
     safe_yaml (1.0.4)
     sass (3.4.22)
     titlecase (0.1.1)
-    tufte-pandoc-jekyll (0.11.1)
+    tufte-pandoc-jekyll (0.11.2)
       jekyll-pandoc (~> 2.0)
 
 PLATFORMS
@@ -68,7 +68,7 @@ DEPENDENCIES
   jekyll (= 3.3.0)
   jekyll-feed (~> 0.6)
   octopress (~> 3.0)
-  tufte-pandoc-jekyll (= 0.11.1)
+  tufte-pandoc-jekyll (= 0.11.2)
 
 RUBY VERSION
    ruby 2.2.4p230

@@ -10,5 +10,5 @@ group :jekyll_plugins do
   # Use octopress for CLI helpers (new post, etc)
   gem "octopress", "~> 3.0"
   # Tufte CSS based theme for Pandoc
-  gem "tufte-pandoc-jekyll", "0.11.1"
+  gem "tufte-pandoc-jekyll", "0.11.2"
 end
