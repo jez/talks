@@ -3,3 +3,4 @@ tags
 _site
 .sass-cache
 .deploy
+.jekyll-metadata
