@@ -27,7 +27,7 @@ pandoc:
 header_includes:
   - '<link rel="stylesheet" href="/talks/assets/css/extras.css">'
 
-gems:
+plugins:
   - jekyll-feed
   - jekyll-pandoc
 exclude:
