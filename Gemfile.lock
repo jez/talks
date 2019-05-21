@@ -71,7 +71,7 @@ DEPENDENCIES
   tufte-pandoc-jekyll (= 0.11.2)
 
 RUBY VERSION
-   ruby 2.2.4p230
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.2
+   1.17.1
