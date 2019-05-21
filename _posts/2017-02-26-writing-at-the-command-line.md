@@ -19,7 +19,7 @@ One of my favorite quotes is this one by Manuel Blum:
 > Without writing, you are reduced to a finite automaton.<br>
 > With writing you have the extraordinary power of a Turing machine.
 >
-> Manuel Blum, _Advice to a Beginning Graduate Student_
+> — Manuel Blum, _Advice to a Beginning Graduate Student_
 
 Writing is a critically important skill for various reasons. Once you've
 convinced yourself *to write*, the next question becomes *how to write*. Writing
