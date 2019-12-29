@@ -43,5 +43,4 @@ A definite plus of giving this talk was getting to travel to Japan in April!
 - [Video](https://www.youtube.com/watch?v=odmlf_ezsBo)
 - [Slides](https://sorbet.run/talks/RubyKaigi2019/#/)
 - [Talk page](https://rubykaigi.org/2019/presentations/jez.html#apr19)
-- [All talks about Sorbet](https://sorbet.org/talks/talks)
 
