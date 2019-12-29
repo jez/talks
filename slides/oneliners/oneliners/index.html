@@ -2,22 +2,22 @@
 <h1>Review</h1>
 <section id="we-can-define-variables-in-bash" class="level2">
 <h2>We can define variables in bash</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># set my_variable to the string &quot;hello&quot;</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># (no spaces around the &#39;=&#39;)</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">$ <span class="ot">my_variable=</span><span class="st">&quot;hello&quot;</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># get the value of my_variable and print it</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">$ <span class="kw">echo</span> <span class="ot">$my_variable</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">hello</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># print another_var surrounded by other text</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">$ <span class="ot">another_var=</span><span class="st">&quot;some string&quot;</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">$ <span class="kw">echo</span> lone<span class="ot">${another_var}</span>s</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">lonesome <span class="kw">strings</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co"># Sometimes using {...} is important:</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">$ <span class="kw">echo</span> lone<span class="ot">$another_vars</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16">lone</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># set my_variable to the string &quot;hello&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># (no spaces around the &#39;=&#39;)</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>$ <span class="ot">my_variable=</span><span class="st">&quot;hello&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># get the value of my_variable and print it</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>$ <span class="kw">echo</span> <span class="ot">$my_variable</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>hello</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># print another_var surrounded by other text</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>$ <span class="ot">another_var=</span><span class="st">&quot;some string&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>$ <span class="kw">echo</span> lone<span class="ot">${another_var}</span>s</span>
+<span id="cb1-12"><a href="#cb1-12"></a>lonesome <span class="kw">strings</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># Sometimes using {...} is important:</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>$ <span class="kw">echo</span> lone<span class="ot">$another_vars</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>lone</span></code></pre></div>
 </section>
 <section id="quotes-can-be-used-to-group-arguments" class="level2">
 <h2>Quotes can be used to group arguments</h2>
@@ -35,53 +35,53 @@
 </section>
 <section id="quotes-are-optional-sometimes" class="level2">
 <h2>Quotes are optional sometimes</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Unquoted strings are still strings</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">$ <span class="kw">echo</span> hello</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">hello</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># Quoted strings are strings</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">$ <span class="kw">echo</span> <span class="st">&#39;hello&#39;</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">hello</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Unquoted strings are still strings</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>$ <span class="kw">echo</span> hello</span>
+<span id="cb2-3"><a href="#cb2-3"></a>hello</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># Quoted strings are strings</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>$ <span class="kw">echo</span> <span class="st">&#39;hello&#39;</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>hello</span></code></pre></div>
 </section>
 <section id="quotes-arent-optional-with-special-characters" class="level2">
 <h2>Quotes aren’t optional with special characters</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Unquoted special characters are shell expanded</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">$ <span class="kw">echo</span> *</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">file1.txt folder</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># Quoted special characters aren&#39;t expanded</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">$ <span class="kw">echo</span> <span class="st">&quot;*&quot;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">*</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># ...unless the special character is a &#39;$&#39;</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">$ <span class="kw">echo</span> <span class="st">&quot;</span><span class="ot">$my_variable</span><span class="st">&quot;</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">hello</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co"># ...in which case we can use single quotes</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">$ <span class="kw">echo</span> <span class="st">&#39;$my_variable&#39;</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="ot">$my_variable</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Unquoted special characters are shell expanded</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>$ <span class="kw">echo</span> *</span>
+<span id="cb3-3"><a href="#cb3-3"></a>file1.txt folder</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># Quoted special characters aren&#39;t expanded</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>$ <span class="kw">echo</span> <span class="st">&quot;*&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>*</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># ...unless the special character is a &#39;$&#39;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>$ <span class="kw">echo</span> <span class="st">&quot;</span><span class="ot">$my_variable</span><span class="st">&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>hello</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># ...in which case we can use single quotes</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>$ <span class="kw">echo</span> <span class="st">&#39;$my_variable&#39;</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="ot">$my_variable</span></span></code></pre></div>
 </section>
 <section id="we-dont-have-to-quote-we-can-escape" class="level2">
 <h2>We don’t <em>have</em> to quote; we can escape</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># We can use &#39;\&#39; to escape special characters</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">$ <span class="kw">echo</span> <span class="dt">\*</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">*</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># Escaping and quoting compound on each other</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># (Sometimes this is what we want)</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">$ <span class="kw">echo</span> <span class="st">&quot;\*&quot;</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="dt">\*</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># We can use &#39;\&#39; to escape special characters</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>$ <span class="kw">echo</span> <span class="dt">\*</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>*</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Escaping and quoting compound on each other</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># (Sometimes this is what we want)</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>$ <span class="kw">echo</span> <span class="st">&quot;\*&quot;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="dt">\*</span></span></code></pre></div>
 </section>
 <section id="understand-the-difference-between-globs-and-regex" class="level2">
 <h2>Understand the difference between globs and regex</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">grep</span> homework_problem<span class="kw">(.</span>*<span class="kw">)</span> homework.py</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#                      ^</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># This is a special shell character!</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># We need to quote or escape it.</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">grep</span> <span class="st">&#39;homework_problem(.*)&#39;</span> homework.py</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#                       ^</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co"># It&#39;s quoted now--we&#39;re good.</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">grep</span> homework_problem<span class="kw">(.</span>*<span class="kw">)</span> homework.py</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#                      ^</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># This is a special shell character!</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># We need to quote or escape it.</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">grep</span> <span class="st">&#39;homework_problem(.*)&#39;</span> homework.py</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#                       ^</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co"># It&#39;s quoted now--we&#39;re good.</span></span></code></pre></div>
 </section>
 </section>
 <section id="input-output" class="level1">
@@ -146,15 +146,15 @@
 </section>
 <section id="pipes-send-stdout-of-one-command-to-stdin-of-another" class="level2">
 <h2>Pipes send <code>stdout</code> of one command to <code>stdin</code> of another</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Disclaimer: this is a toy example.</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># We normally run grep like this:</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">grep</span> TODO *</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># But if we give grep no arguments, it</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co"># will search on stdin. So we can do</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co"># this equivalent command</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw">cat</span> * <span class="kw">|</span> <span class="kw">grep</span> TODO</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Disclaimer: this is a toy example.</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># We normally run grep like this:</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">grep</span> TODO *</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co"># But if we give grep no arguments, it</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># will search on stdin. So we can do</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co"># this equivalent command</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="kw">cat</span> * <span class="kw">|</span> <span class="kw">grep</span> TODO</span></code></pre></div>
 </section>
 </section>
 <section id="oneliners" class="level1">
@@ -165,12 +165,12 @@
 <li>We start with some sort of data</li>
 <li>Then we filter it down</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Example</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">$ <span class="kw">du</span> -h d1 <span class="kw">|</span> <span class="kw">sort</span> -hr</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># ^          ^</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># |          |</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co"># |          `- And feed it to this command (filter)</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co"># `- Take the stdout of this command (initial data)</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Example</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>$ <span class="kw">du</span> -h d1 <span class="kw">|</span> <span class="kw">sort</span> -hr</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># ^          ^</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># |          |</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># |          `- And feed it to this command (filter)</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># `- Take the stdout of this command (initial data)</span></span></code></pre></div>
 </section>
 <section id="useful-commands" class="level2">
 <h2>Useful commands</h2>
@@ -194,21 +194,21 @@
 </section>
 <section id="examples" class="level2">
 <h2>Examples</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Open all PDF files not named written.pdf</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">find</span> <span class="kw">.</span> -name <span class="st">&quot;*pdf&quot;</span> <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="kw">|</span> <span class="kw">grep</span> -v <span class="st">&quot;written.pdf&quot;</span> <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="kw">|</span> <span class="kw">xargs</span> open</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co"># Get 100 random lowercase dictionary words</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">shuf /usr/share/dict/words <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">  <span class="kw">|</span> <span class="kw">head</span> -n 100 <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">  <span class="kw">|</span> <span class="kw">tr</span> <span class="st">&#39;[A-Z]&#39;</span> <span class="st">&#39;[a-z]&#39;</span> <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">  <span class="kw">|</span> <span class="kw">sort</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co"># Count how many times it says &quot;Vim&quot; on a page</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">curl https://jez.io <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">  <span class="kw">|</span> <span class="kw">grep</span> --only-matching Vim <span class="kw">\</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">  <span class="kw">|</span> <span class="kw">wc</span> -l</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Open all PDF files not named written.pdf</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">find</span> <span class="kw">.</span> -name <span class="st">&quot;*pdf&quot;</span> <span class="kw">\</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="kw">|</span> <span class="kw">grep</span> -v <span class="st">&quot;written.pdf&quot;</span> <span class="kw">\</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="kw">|</span> <span class="kw">xargs</span> open</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co"># Get 100 random lowercase dictionary words</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>shuf /usr/share/dict/words <span class="kw">\</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="kw">|</span> <span class="kw">head</span> -n 100 <span class="kw">\</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="kw">|</span> <span class="kw">tr</span> <span class="st">&#39;[A-Z]&#39;</span> <span class="st">&#39;[a-z]&#39;</span> <span class="kw">\</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="kw">|</span> <span class="kw">sort</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co"># Count how many times it says &quot;Vim&quot; on a page</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a>curl https://jez.io <span class="kw">\</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>  <span class="kw">|</span> <span class="kw">grep</span> --only-matching Vim <span class="kw">\</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>  <span class="kw">|</span> <span class="kw">wc</span> -l</span></code></pre></div>
 </section>
 </section>
 <section id="recap" class="level1">
