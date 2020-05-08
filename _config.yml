@@ -33,6 +33,8 @@ header_includes:
 plugins:
   - jekyll-feed
   - jekyll-pandoc
+include:
+  - .nojekyll
 exclude:
   - Gemfile
   - Gemfile.lock
