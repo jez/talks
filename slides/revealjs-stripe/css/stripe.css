@@ -16,12 +16,28 @@
 
 :root {
   /* http://go/colors */
-  --stripe-blue4: #6772e5;
-  --stripe-slate2: #424770;
-  --stripe-slate4: #6B7C93;
-  --stripe-slate9: #f6f9fc;
-  --stripe-cyan5: #45b2e8;
-  --stripe-cyan6: #68d4f8;
+  --stripe-slate1:  #32325d;
+  --stripe-slate2:  #424770;
+  --stripe-slate3:  #525f7f;
+  --stripe-slate4:  #6b7c93;
+  --stripe-slate8:  #e6ebf1;
+  --stripe-slate9:  #f6f9fc;
+
+  --stripe-cyan4:   #3297d3;
+  --stripe-cyan6:   #68d4f8;
+
+  --stripe-blue3:   #555abf;
+  --stripe-cyan3:   #217ab7;
+  --stripe-green3:  #159570;
+  --stripe-yellow3: #ce7c3a;
+  --stripe-orange3: #c85d42;
+  --stripe-red3:    #c23d4b;
+  --stripe-purple3: #9251ac;
+  --stripe-violet3: #7356b6;
+
+  --bg-color: var(--stripe-slate2);
+  --fg-color: var(--stripe-slate9);
+  --accent-color: var(--stripe-cyan6);
 
   --main-font: CamphorPro, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --main-font-size: 40px;
@@ -39,10 +55,10 @@
 /* --- Global styles -------------------------- */
 
 body {
-  background: url('../img/background-dark.png');
+  background-image: url('../img/background-dark.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-color: var(--stripe-slate2);
+  background-color: var(--bg-color);
 }
 
 .reveal {
@@ -53,7 +69,7 @@ body {
   font-size: var(--main-font-size);
   font-weight: normal;
 
-  color: var(--stripe-slate9);
+  color: var(--fg-color);
 }
 
 .reveal .slides section,
@@ -85,6 +101,11 @@ body {
 .reveal h2 { font-size: var(--h2-font-size); }
 .reveal h3 { font-size: var(--h3-font-size); }
 
+.reveal .title {
+  /* Clicking the title toggles the theme */
+  cursor: pointer;
+}
+
 /* --- Layout --------------------------------- */
 
 .reveal .slides {
@@ -110,7 +131,7 @@ body {
 .reveal strong,
 .reveal b {
   font-weight: bold;
-  color: var(--stripe-cyan6);
+  color: var(--accent-color);
 }
 
 .reveal em {
@@ -118,12 +139,12 @@ body {
 }
 
 .reveal a {
-  color: var(--stripe-cyan6);
+  color: var(--accent-color);
   text-decoration: none;
 }
 
 .reveal a:hover {
-  color: var(--stripe-cyan5);
+  text-decoration: underline;
 }
 
 .reveal sup {
@@ -290,23 +311,20 @@ body {
 /* We don't even use the controls */
 
 .reveal .controls {
-  color: var(--stripe-cyan6);
+  color: var(--accent-color);
 }
 
 /* --- Progress bar --------------------------- */
 
 .reveal .progress {
   background: rgba(0,0,0,0.2);
-  color: var(--stripe-cyan6);
+  color: var(--accent-color);
 }
 
 /* --- Print background ----------------------- */
 @media print {
   .backgrounds {
-    background: url('../img/background.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-color: var(--stripe-slate2);
+    background-color: var(--bg-color);
   }
 }
 
@@ -329,4 +347,55 @@ body {
     bottom: 0.4em;
 }
 
-/* TODO(jez) Light theme */
+/* --- Stripe Light --------------------------- */
+
+html.stripe-light {
+  /* Define these as their opposites to enable light mode */
+  --bg-color: var(--stripe-slate9);
+  --fg-color: var(--stripe-slate2);
+  --accent-color: var(--stripe-cyan4);
+}
+
+html.stripe-light body {
+  background-image: url(../img/background-light.png);
+}
+
+/* The stripe.theme file can't use CSS variables,
+ * so we have to flip some colors manually. */
+html.stripe-light div.sourceCode {
+  background-color: var(--stripe-slate8);
+}
+
+html.stripe-light pre.numberSource code > span > a:first-child::before {
+  color: var(--stripe-slate4);
+}
+
+html.stripe-light code span.al { color: var(--stripe-red3);    } /* Alert */
+html.stripe-light code span.an { color: var(--stripe-slate3);  } /* Annotation */
+html.stripe-light code span.at {                               } /* Attribute */
+html.stripe-light code span.bn { color: var(--stripe-yellow3); } /* BaseN */
+html.stripe-light code span.bu {                               } /* BuiltIn */
+html.stripe-light code span.cf { color: var(--stripe-purple3); } /* ControlFlow */
+html.stripe-light code span.ch { color: var(--stripe-yellow3); } /* Char */
+html.stripe-light code span.cn { color: var(--stripe-yellow3); } /* Constant */
+html.stripe-light code span.co { color: var(--stripe-slate4);  } /* Comment */
+html.stripe-light code span.cv { color: var(--stripe-slate4);  } /* CommentVar */
+html.stripe-light code span.do { color: var(--stripe-slate3);  } /* Documentation */
+html.stripe-light code span.dt { color: var(--stripe-green3);  } /* DataType */
+html.stripe-light code span.dv { color: var(--stripe-yellow3); } /* DecVal */
+html.stripe-light code span.er { color: var(--stripe-red3);    } /* Error */
+html.stripe-light code span.ex {                               } /* Extension */
+html.stripe-light code span.fl { color: var(--stripe-yellow3); } /* Float */
+html.stripe-light code span.fu { color: var(--stripe-blue3);   } /* Function */
+html.stripe-light code span.im { color: var(--stripe-violet3); } /* Import */
+html.stripe-light code span.in { color: var(--stripe-slate3);  } /* Information */
+html.stripe-light code span.kw { color: var(--stripe-purple3); } /* Keyword */
+html.stripe-light code span.op { color: var(--stripe-purple3); } /* Operator */
+html.stripe-light code span.ot { color: var(--stripe-blue3);   } /* Other */
+html.stripe-light code span.pp { color: var(--stripe-orange3); } /* Preprocessor */
+html.stripe-light code span.sc { color: var(--stripe-red3);    } /* SpecialChar */
+html.stripe-light code span.ss { color: var(--stripe-red3);    } /* SpecialString */
+html.stripe-light code span.st { color: var(--stripe-yellow3); } /* String */
+html.stripe-light code span.va { color: var(--stripe-blue3);   } /* Variable */
+html.stripe-light code span.vs {                               } /* VerbatimString */
+html.stripe-light code span.wa { color: var(--stripe-orange3); } /* Warning */
