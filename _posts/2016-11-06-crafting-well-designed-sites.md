@@ -18,4 +18,4 @@ discussed what we liked and didn't like about various designs.
 - [Crafting Well-Designed Sites](../slides/crafting-well-designed-sites/crafting-well-designed-sites.pdf)
 - [Markdown sources (GitHub)](https://github.com/jez/talks/tree/master/slides/crafting-well-designed-sites)
 
-[Frontend JavaScript Primer]: {{ site.baseurl }}/{% post_url 2014-09-04-frontend-javascript-primer %}
+[Frontend JavaScript Primer]: {% post_url 2014-09-04-frontend-javascript-primer %}
