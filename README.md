@@ -20,40 +20,18 @@ Pandoc Markdown (including support for tufte-css-style sidenotes!).
 
 ## Developing
 
-### One-time Setup
-
-I use `virtualenvwrapper` to manage my Ruby projects.
-It's a bit of a hack, but it works.
-Follow the setup here:
-
-- <https://blog.jez.io/ruby-virtualenvs/>
-
-Then:
-
-```
-mkvirtualenv talks
-gem install bundler
+```bash
+# One-time setup: install the dependencies
 bundle install
-deactivate
-```
-
-### Using
-
-```shell
-# Start working on this project
-workon talks
 
 # Preview the site
-jekyll serve
+bundle exec jekyll serve
 
 # Add a post (set the --date to when the talk was/will be given)
-octopress new post --date YYYY-MM-DD foo-bar
+bundle exec octopress new post --date YYYY-MM-DD foo-bar
 
 # Publish changes to GitHub pages
-octopress deploy
-
-# To reset your PATH (i.e., to work on another project)
-deactivate
+bundle exec jekyll build && bundle exec octopress deploy
 ```
 
 ## License
