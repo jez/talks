@@ -19,11 +19,11 @@ p.subtitle { font-style: italic; margin-top: 1rem; margin-bottom: 1rem; font-siz
 
 .danger { color: red; }
 
-article { position: relative; padding: 5rem 0rem; }
+article { padding: 5rem 0rem; }
 
 section { padding-top: 1rem; padding-bottom: 1rem; }
 
-p, ol, ul { font-size: 1.4rem; line-height: 2rem; }
+p, dl, ol, ul { font-size: 1.4rem; line-height: 2rem; }
 
 p { margin-top: 1.4rem; margin-bottom: 1.4rem; padding-right: 0; vertical-align: baseline; }
 
@@ -48,9 +48,9 @@ blockquote footer { width: 55%; font-size: 1.1rem; text-align: right; }
 section > p, section > footer, section > table { width: 55%; }
 
 /* 50 + 5 == 55, to be the same width as paragraph */
-section > ol, section > ul { width: 50%; -webkit-padding-start: 5%; }
+section > dl, section > ol, section > ul { width: 50%; -webkit-padding-start: 5%; }
 
-li:not(:first-child) { margin-top: 0.25rem; }
+dt:not(:first-child), li:not(:first-child) { margin-top: 0.25rem; }
 
 figure { padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; max-width: 55%; -webkit-margin-start: 0; -webkit-margin-end: 0; margin: 0 0 3em 0; }
 
@@ -61,18 +61,18 @@ figure.fullwidth figcaption { margin-right: 24%; }
 /* Links: replicate underline that clears descenders */
 a:link, a:visited { color: inherit; }
 
-a:link { text-decoration: none; background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#333, #333); background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#333, #333); -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px; -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px; background-size: 0.05em 1px, 0.05em 1px, 1px 1px; background-repeat: no-repeat, no-repeat, repeat-x; text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8; background-position: 0% 93%, 100% 93%, 0% 93%; }
+.no-tufte-underline:link { background: unset; text-shadow: unset; }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) { a:link { background-position-y: 87%, 87%, 87%; } }
+a:link, .tufte-underline, .hover-tufte-underline:hover { text-decoration: none; background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(currentColor, currentColor); background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(currentColor, currentColor); -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px; -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px; background-size: 0.05em 1px, 0.05em 1px, 1px 1px; background-repeat: no-repeat, no-repeat, repeat-x; text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8; background-position: 0% 93%, 100% 93%, 0% 93%; }
 
-a:link::selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe; background: #b4d5fe; }
+@media screen and (-webkit-min-device-pixel-ratio: 0) { a:link, .tufte-underline, .hover-tufte-underline:hover { background-position-y: 87%, 87%, 87%; } }
 
-a:link::-moz-selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe; background: #b4d5fe; }
+a:link::selection, a:link::-moz-selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe; background: #b4d5fe; }
 
 /* Sidenotes, margin notes, figures, captions */
 img { max-width: 100%; }
 
-.sidenote, .marginnote { float: right; clear: right; margin-right: -60%; width: 50%; margin-top: 0; margin-bottom: 0; font-size: 1.1rem; line-height: 1.3; vertical-align: baseline; position: relative; }
+.sidenote, .marginnote { float: right; clear: right; margin-right: -60%; width: 50%; margin-top: 0.3rem; margin-bottom: 0; font-size: 1.1rem; line-height: 1.3; vertical-align: baseline; position: relative; }
 
 .sidenote-number { counter-increment: sidenote-counter; }
 
@@ -90,7 +90,7 @@ div.table-wrapper { overflow-x: auto; font-family: "Trebuchet MS", "Gill Sans", 
 
 .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; letter-spacing: .03em; }
 
-code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 1.0rem; line-height: 1.42; }
+code, pre > code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 1.0rem; line-height: 1.42; -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */ }
 
 .sans > code { font-size: 1.2rem; }
 
@@ -98,9 +98,9 @@ h1 > code, h2 > code, h3 > code { font-size: 0.80em; }
 
 .marginnote > code, .sidenote > code { font-size: 1rem; }
 
-pre.code { font-size: 0.9rem; width: 52.5%; margin-left: 2.5%; overflow-x: auto; }
+pre > code { font-size: 0.9rem; width: 52.5%; margin-left: 2.5%; overflow-x: auto; display: block; }
 
-pre.code.fullwidth { width: 90%; }
+pre.fullwidth > code { width: 90%; }
 
 .fullwidth { max-width: 90%; clear: both; }
 
@@ -116,23 +116,40 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
 
 .iframe-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-@media (max-width: 760px) { body { width: 84%; padding-left: 8%; padding-right: 8%; } hr, section > p, section > footer, section > table { width: 100%; } pre.code { width: 97%; } section > ol { width: 90%; } section > ul { width: 90%; } figure { max-width: 90%; } figcaption, figure.fullwidth figcaption { margin-right: 0%; max-width: none; } blockquote { margin-left: 1.5em; margin-right: 0em; } blockquote p, blockquote footer { width: 100%; } label.margin-toggle:not(.sidenote-number) { display: inline; } .sidenote, .marginnote { display: none; } .margin-toggle:checked + .sidenote, .margin-toggle:checked + .marginnote { display: block; float: left; left: 1rem; clear: both; width: 95%; margin: 1rem 2.5%; vertical-align: baseline; position: relative; } label { cursor: pointer; } div.table-wrapper, table { width: 85%; } img { width: 100%; } }
+@media (max-width: 760px) { body { width: 84%; padding-left: 8%; padding-right: 8%; } hr, section > p, section > footer, section > table { width: 100%; } pre > code { width: 97%; } section > dl, section > ol, section > ul { width: 90%; } figure { max-width: 90%; } figcaption, figure.fullwidth figcaption { margin-right: 0%; max-width: none; } blockquote { margin-left: 1.5em; margin-right: 0em; } blockquote p, blockquote footer { width: 100%; } label.margin-toggle:not(.sidenote-number) { display: inline; } .sidenote, .marginnote { display: none; } .margin-toggle:checked + .sidenote, .margin-toggle:checked + .marginnote { display: block; float: left; left: 1rem; clear: both; width: 95%; margin: 1rem 2.5%; vertical-align: baseline; position: relative; } label { cursor: pointer; } div.table-wrapper, table { width: 85%; } img { width: 100%; } }
 
 /* The default x-height for code is slightly too large in side notes */
 .marginnote code, .sidenote code { font-size: 0.9rem; }
 
-/* ... and slightly to small in body text. */
-code { font-size: 1.1rem; }
+/* ... and slightly too small in body text */
+code { font-size: 1.05rem; }
 
+/* Also make the sidenote numbers hang */
+.sidenote { text-indent: -0.4rem; }
+
+.sidenote:before { /* removes trailing space from the counter content */ content: counter(sidenote-counter); left: -0.4rem; }
+
+/* To get spacing between lists, use paragraphs. 0.25rem of spacing between list elements looks bad. */
+li:not(:first-child) { margin-top: initial; }
+
+/* Prevent superscripts and subscripts from affecting line-height */
+sup, sub { vertical-align: baseline; position: relative; top: -0.4em; }
+
+sub { top: 0.4em; }
+
+/* Replicate styling from sidenote numbers to footnote numbers */
+a.footnote-ref { background: unset; text-shadow: unset; font-size: 1rem; position: relative; top: -0.1rem; left: 0.1rem; display: inline; }
+
+.footnote-ref sup { font-family: et-book-roman-old-style; font-size: inherit; vertical-align: inherit; line-height: inherit; }
+
+/* --- Styles specific to tufte-pandoc-jekyll --- */
 /* Make "Home" link small */
 p.signoff { font-size: 1.2rem; }
 
 body { max-width: 1150px; }
 
 /** Makes it so that top-level <p> don't need to be wrapped in <section> */
-article > p { width: 55%; }
-
-@media (max-width: 760px) { article > p { width: 100%; } }
+article > p, article > li, article > footer, article > table { width: 55%; }
 
 /* Enable hyphens on supported platforms */
 article { -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
@@ -164,19 +181,45 @@ figure.fullwidth table { width: 90%; }
 @media (max-width: 760px) { figure.fullwidth table { width: 100%; } }
 
 /* Code blocks Code blocks with a language look like div.sourceCode > pre.sourceCode Otherwise, it's just a pre (without .sourceCode) */
-div.sourceCode, pre:not(.sourceCode) { padding: 1.4rem; margin: -0.7rem -1.4rem; width: 55%; font-size: 0.9rem; overflow-x: auto; }
+/* Unset the tufte-css defaults that we'd like to overwrite */
+pre > code { margin-left: initial; overflow-x: initial; display: initial; }
 
-div.sourceCode code, pre:not(.sourceCode) code { font-size: 0.9rem; }
+.sourceCode.numberLines a:link { text-decoration: initial; background: initial; text-shadow: initial; }
+
+div.sourceCode, pre:not(.sourceCode) { padding: 1.4rem; margin: -0.7rem -1.4rem; width: 55%; overflow-x: auto; }
 
 .fullwidth div.sourceCode, .fullwidth pre:not(.sourceCode) { width: 100%; }
 
-@media (max-width: 760px) { div.sourceCode, pre:not(.sourceCode) { width: 100%; } }
+@media (max-width: 760px) { div.sourceCode, pre:not(.sourceCode) { padding: 1.4rem 8vw; margin: -0.7rem -8vw; width: 100%; } .fullwidth { max-width: 100%; } }
+
+/* Math formatting */
+.katex { font-size: inherit !important; }
+
+/* Wrap long URLs in references */
+#refs a { word-wrap: break-word; overflow-wrap: break-word; }
+
+/* To get the pandoc-generated bibliography to match style, define csl classes. */
+div.csl-bib-body { width: 55%; }
+
+div.csl-entry { clear: both; margin-top: .5rem; }
+
+.hanging div.csl-entry { margin-left: 2rem; text-indent: -2rem; }
+
+div.csl-left-margin { min-width: 2rem; float: left; }
+
+div.csl-right-inline { margin-left: 2rem; padding-left: 1rem; }
+
+div.csl-indent { margin-left: 2rem; }
+
+div.hanging-indent { margin-left: 1.5rem; text-indent: -1.5rem; }
+
+@media (max-width: 760px) { div.csl-bib-body { width: 100%; } }
 
 div.sourceCode, pre:not(.sourceCode) { background: #FDF6E3; }
 
 pre code { color: #657B83; }
 
-code span.kw { color: #859900; font-weight: bold; font-style: normal; }
+code span.kw { color: #859900; font-weight: normal; font-style: normal; }
 
 /* Keyword */
 code span.dt { color: #B58900; font-weight: normal; font-style: normal; }
@@ -203,16 +246,16 @@ code span.co { color: #93A1A1; font-weight: normal; font-style: italic; }
 code span.ot { color: #268BD2; font-weight: normal; font-style: normal; }
 
 /* Other */
-code span.al { color: #DC322F; font-weight: bold; font-style: normal; }
+code span.al { color: #DC322F; font-weight: normal; font-style: normal; }
 
 /* Alert */
 code span.fu { color: #268BD2; font-weight: normal; font-style: normal; }
 
 /* Function */
-code span.er { color: #DC322F; font-weight: bold; font-style: normal; }
+code span.er { color: #DC322F; font-weight: normal; font-style: normal; }
 
 /* Error */
-code span.wa { color: #CB4B16; font-weight: bold; font-style: italic; }
+code span.wa { color: #CB4B16; font-weight: normal; font-style: italic; }
 
 /* Warning */
 code span.cn { color: #2AA198; font-weight: normal; font-style: normal; }
@@ -233,10 +276,10 @@ code span.im { color: #657B83; font-weight: normal; font-style: normal; }
 code span.va { color: #268BD2; font-weight: normal; font-style: normal; }
 
 /* Variable */
-code span.cf { color: #859900; font-weight: bold; font-style: normal; }
+code span.cf { color: #859900; font-weight: normal; font-style: normal; }
 
 /* ControlFlow */
-code span.op { color: #859900; font-weight: bold; font-style: normal; }
+code span.op { color: #859900; font-weight: normal; font-style: normal; }
 
 /* Operator */
 code span.bu { color: #657B83; font-weight: normal; font-style: normal; }
@@ -254,13 +297,13 @@ code span.at { color: #657B83; font-weight: normal; font-style: normal; }
 code span.do { color: #93A1A1; font-weight: normal; font-style: italic; }
 
 /* Documentation */
-code span.an { color: #93A1A1; font-weight: bold; font-style: italic; }
+code span.an { color: #93A1A1; font-weight: normal; font-style: italic; }
 
 /* Annotation */
-code span.cv { color: #93A1A1; font-weight: bold; font-style: italic; }
+code span.cv { color: #93A1A1; font-weight: normal; font-style: italic; }
 
 /* CommentVar */
-code span.in { color: #93A1A1; font-weight: bold; font-style: italic; }
+code span.in { color: #93A1A1; font-weight: normal; font-style: italic; }
 
 /* Information */
 a.sourceLine::before { text-decoration: none; }
