@@ -10,3 +10,6 @@ gem 'jekyll-redirect-from'
 gem 'octopress', '~> 3.0', git: 'https://github.com/jez/octopress.git', ref: '24cd109e9340baf45a9a44beca33c20d2905f597'
 gem "tufte-pandoc-jekyll", "0.13.0"
 
+# To silence deprecation warnings (upgrade Jekyll to fix)
+gem 'csv'
+gem 'base64'
