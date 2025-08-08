@@ -12,6 +12,8 @@ Sorbet's type syntax. The abstract of the talk:
 > Why does `sig` take a block? Why do some types use `T::` and some types use `T.`? Why do Sorbet type annotations feel so verbose? How did it end up like this?
 >
 > We'll answer these questions and more. Starting from before Sorbet existed, we'll proceed through the history and circumstances which influenced Sorbet's type syntax, discussing the principles guiding the design. We'll end with some ideas for the future, both for Sorbet and the wider typed Ruby ecosystem.
+>
+> <p></p>
 
 Unfortunately, the audio quality in the recording below is particularly poor. If
 you happen to work at Stripe, I gave this same talk as an internal "lunch and

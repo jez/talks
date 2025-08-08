@@ -21,6 +21,8 @@ The abstract of the talk:
 > system to introduce modularity. The ideas will be high-level, and apply to
 > basically any team that wants to run a migration in a large, stubborn
 > codebase.
+>
+> <p></p>
 
 - [Video](https://www.infoq.com/presentations/refactoring-legacy-codebases/)
 - [Slides](https://sorbet.run/talks/QCon2024/)
