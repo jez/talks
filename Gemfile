@@ -1,14 +1,12 @@
 source "https://rubygems.org"
 ruby RUBY_VERSION
 
-gem "jekyll"#, "~> 3.6.x"
+gem 'jekyll', '~> 4.x'
+# https://github.com/jekyll/jekyll-feed/compare/master...jez:jekyll-feed:jez-categories
+gem 'jekyll-feed', github: 'jez/jekyll-feed', ref: 'be7477f0acc6665eb64285f22634f89ec733f9f9'
+gem 'jekyll-sitemap'
+gem 'jekyll-redirect-from'
+# https://github.com/octopress/octopress/compare/master...jez:octopress:jez-frozen
+gem 'octopress', '~> 3.0', git: 'https://github.com/jez/octopress.git', ref: '24cd109e9340baf45a9a44beca33c20d2905f597'
+gem "tufte-pandoc-jekyll", "0.13.0"
 
-# If you have any plugins, put them here!
-group :jekyll_plugins do
-  # autogenerate RSS feed
-  gem "jekyll-feed", "~> 0.6"
-  # Use octopress for CLI helpers (new post, etc)
-  gem "octopress", "~> 3.0"
-  # Tufte CSS based theme for Pandoc
-  gem "tufte-pandoc-jekyll", "0.13.0"
-end
