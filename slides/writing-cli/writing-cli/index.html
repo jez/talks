@@ -10,7 +10,8 @@
 <li>…</li>
 </ul>
 </section>
-<section id="lets-take-a-look-at-how-we-make-documents-right-now." class="level1">
+<section id="lets-take-a-look-at-how-we-make-documents-right-now."
+class="level1">
 <h1>Let’s take a look at how we make documents right now.</h1>
 <section id="microsoft-word" class="level2">
 <h2>Microsoft Word</h2>
@@ -95,7 +96,8 @@
 </section>
 <section id="getting-started-with-markdown" class="level1">
 <h1>Getting Started with Markdown</h1>
-<section id="there-are-lots-of-different-implementations" class="level2">
+<section id="there-are-lots-of-different-implementations"
+class="level2">
 <h2>There are lots of different implementations</h2>
 <ul>
 <li>Markdown.pl</li>
@@ -104,7 +106,9 @@
 <li>CommonMark</li>
 <li>… and many more</li>
 </ul>
-<p>Each supports the core syntax to some degree, and usually has some number of syntax extensions, which each implementation supports to varying degrees.</p>
+<p>Each supports the core syntax to some degree, and usually has some
+number of syntax extensions, which each implementation supports to
+varying degrees.</p>
 </section>
 <section id="learning-markdown-syntax" class="level2">
 <h2>Learning Markdown Syntax</h2>
@@ -114,9 +118,13 @@
 </ul>
 <p>If you want to start comparing implementation differences:</p>
 <ul>
-<li><a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown</a></li>
-<li><a href="https://daringfireball.net/projects/markdown/">Markdown.pl</a></li>
-<li><a href="http://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc Markdown</a></li>
+<li><a
+href="https://guides.github.com/features/mastering-markdown/">GitHub
+Flavored Markdown</a></li>
+<li><a
+href="https://daringfireball.net/projects/markdown/">Markdown.pl</a></li>
+<li><a href="http://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc
+Markdown</a></li>
 </ul>
 </section>
 <section id="good-markdown-style" class="level2">
@@ -127,9 +135,11 @@
 <li>Put one newline after any heading</li>
 <li>Hard wrap your lines (72 or 80 characters per line)
 <ul>
-<li>See Vim’s <code>gq</code> operator and <code>textwidth</code> setting</li>
+<li>See Vim’s <code>gq</code> operator and <code>textwidth</code>
+setting</li>
 </ul></li>
-<li>Use reference-style links (<code>[link][href]</code> or <code>[link]</code>)</li>
+<li>Use reference-style links (<code>[link][href]</code> or
+<code>[link]</code>)</li>
 </ul>
 <p>To avoid confusion:</p>
 <ul>
@@ -146,7 +156,8 @@
 </section>
 <section id="using-markdown-online" class="level1">
 <h1>Using Markdown Online</h1>
-<section id="github-uses-markdown-for-basically-everything" class="level2">
+<section id="github-uses-markdown-for-basically-everything"
+class="level2">
 <h2>GitHub uses Markdown for basically everything:</h2>
 <ul>
 <li>Your README</li>
@@ -161,7 +172,8 @@
 <section id="stackedit.io-is-a-great-markdown-editor" class="level2">
 <h2>StackEdit.io is a great Markdown editor</h2>
 <ul>
-<li><a href="https://stackedit.io" class="uri">https://stackedit.io</a></li>
+<li><a href="https://stackedit.io"
+class="uri">https://stackedit.io</a></li>
 <li>Open source</li>
 <li>Web based</li>
 <li>Good for personal note taking</li>
@@ -171,9 +183,9 @@
 <section id="writing-at-the-command-line" class="level1">
 <h1>Writing at the Command Line</h1>
 <section id="previewing-github-markdown-with-grip1" class="level2">
-<h2>Previewing GitHub Markdown with <code>grip</code><span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">GitHub Readme Instant Preview<br />
-<br />
-</span></span></h2>
+<h2>Previewing GitHub Markdown with <code>grip</code><a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></h2>
 <p>To use:</p>
 <ul>
 <li>Install (<code>pip install grip</code>)</li>
@@ -187,7 +199,8 @@
 <section id="making-pdfs-with-markdown" class="level2">
 <h2>Making PDFs with Markdown</h2>
 <ul>
-<li>Install <code>pandoc</code> (i.e., <code>brew install pandoc</code>)</li>
+<li>Install <code>pandoc</code> (i.e.,
+<code>brew install pandoc</code>)</li>
 <li>Install LaTeX locally (i.e., <code>brew cask install mactex</code>)
 <ul>
 <li>… installing LaTeX takes a long time!</li>
@@ -202,11 +215,14 @@
 <section id="pandoc-is-a-veritable-swiss-army-knife" class="level2">
 <h2>Pandoc is a veritable Swiss Army Knife</h2>
 <p>Pandoc supports formatting your Markdown in lots of ways.</p>
-<p>I’ve compiled all the starter files I have lying around into one place:</p>
+<p>I’ve compiled all the starter files I have lying around into one
+place:</p>
 <ul>
-<li><a href="https://github.com/jez/pandoc-starter" class="uri">https://github.com/jez/pandoc-starter</a></li>
+<li><a href="https://github.com/jez/pandoc-starter"
+class="uri">https://github.com/jez/pandoc-starter</a></li>
 </ul>
-<p>Each comes with a README and a Makefile to compile the sample document.</p>
+<p>Each comes with a README and a Makefile to compile the sample
+document.</p>
 </section>
 <section id="jekyll-lets-you-create-blogs-with-markdown" class="level2">
 <h2>Jekyll lets you create blogs with Markdown</h2>
@@ -214,24 +230,38 @@
 $ jekyll new my-awesome-site
 $ cd my-awesome-site
 $ bundle exec jekyll serve</code></pre>
-<p>You can write your page templates as HTML once, then write each post in Markdown.</p>
-<p>See more at <a href="https://jekyllrb.com" class="uri">https://jekyllrb.com</a>.</p>
+<p>You can write your page templates as HTML once, then write each post
+in Markdown.</p>
+<p>See more at <a href="https://jekyllrb.com"
+class="uri">https://jekyllrb.com</a>.</p>
 </section>
 <section id="some-extra-workflow-hacks" class="level2">
 <h2>Some extra workflow hacks</h2>
 <ul>
 <li>You can run <code>:make</code> in Vim to access your Makefile</li>
-<li>You can run <code>:make view</code> to compile the target named <code>view</code></li>
+<li>You can run <code>:make view</code> to compile the target named
+<code>view</code></li>
 <li>You can add this line to your vimrc to abbreviate this:
 <ul>
 <li><code>command! WV w | make view</code></li>
 <li>(i.e., save the file, then run <code>:make view</code>)</li>
 <li>to use: <code>:WV</code></li>
 </ul></li>
-<li>You can have Vim and your PDF previewer open in halves of your screen</li>
+<li>You can have Vim and your PDF previewer open in halves of your
+screen</li>
 </ul>
-<p>(<a href="http://blog.jez.io/2014/10/06/offline-latex-development/">More detailed instructions</a>)</p>
+<p>(<a
+href="http://blog.jez.io/2014/10/06/offline-latex-development/">More
+detailed instructions</a>)</p>
 <!-- vim:tw=60 softtabstop=4
 -->
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>GitHub Readme Instant Preview<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>

@@ -1,6 +1,7 @@
 <section id="package-managers" class="level1">
 <h1>Package Managers</h1>
-<section id="package-managers-make-installing-software-easy" class="level2">
+<section id="package-managers-make-installing-software-easy"
+class="level2">
 <h2>Package managers make installing software easy</h2>
 <p>Package managers…</p>
 <ul>
@@ -13,19 +14,20 @@
 </ul></li>
 <li>usually ship along side the operating system.
 <ul>
-<li>exception: <code>brew</code> on macOS needs to be installed separately</li>
+<li>exception: <code>brew</code> on macOS needs to be installed
+separately</li>
 </ul></li>
 </ul>
 </section>
 <section id="using-your-package-manager1" class="level2">
-<h2>Using your package manager<span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">Windows users: the rest of this talk assumes macOS or Linux.<br />
-<br />
-</span></span></h2>
+<h2>Using your package manager<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
 <p>Package managers all have different commands and syntax.</p>
 <ul>
 <li>macOS
 <ul>
-<li>First download &amp; install: <a href="http://brew.sh" class="uri">http://brew.sh</a></li>
+<li>First download &amp; install: <a href="http://brew.sh"
+class="uri">http://brew.sh</a></li>
 <li><code>brew install &lt;package&gt;</code></li>
 </ul></li>
 <li>Ubuntu
@@ -33,7 +35,8 @@
 <li><code>sudo apt-get install &lt;package&gt;</code></li>
 </ul></li>
 </ul>
-<p>For other systems, take a second to look up how to install packages using your package manager.</p>
+<p>For other systems, take a second to look up how to install packages
+using your package manager.</p>
 </section>
 </section>
 <section id="tmux" class="level1">
@@ -42,44 +45,56 @@
 <h2><code>tmux</code> is a terminal multiplexer</h2>
 <p>From Wikipedia:</p>
 <blockquote>
-<p><code>tmux</code> is a software application that can be used to “multiplex” several virtual consoles, allowing a user to access multiple separate terminal sessions inside a single terminal window or remote terminal session. It is useful for dealing with multiple programs from a command-line interface.</p>
+<p><code>tmux</code> is a software application that can be used to
+“multiplex” several virtual consoles, allowing a user to access multiple
+separate terminal sessions inside a single terminal window or remote
+terminal session. It is useful for dealing with multiple programs from a
+command-line interface.</p>
 </blockquote>
 <p>TL;DR:</p>
 <ul>
 <li>You can create tabs running different commands</li>
-<li>You can create splits (horizontally and vertically) running different commands</li>
+<li>You can create splits (horizontally and vertically) running
+different commands</li>
 </ul>
 </section>
 <section id="launching-tmux-creates-a-session" class="level2">
 <h2>Launching <code>tmux</code> creates a “session”</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a session</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$ tmux</span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a session</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tmux</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a named session</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>$ tmux new -s gpi</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tmux new <span class="at">-s</span> gpi</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach to last session you detached from</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>$ tmux a</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tmux a</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach to any named session you detached from</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>$ tmux a -t gpi</span></code></pre></div>
-<p>Note that we can “detach” from sessions. In fact, if we get disconnected: <code>tmux</code> automatically detaches us!</p>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tmux a <span class="at">-t</span> gpi</span></code></pre></div>
+<p>Note that we can “detach” from sessions. In fact, if we get
+disconnected: <code>tmux</code> automatically detaches us!</p>
 </section>
 <section id="we-use-tmux-with-a-prefix" class="level2">
 <h2>We use <code>tmux</code> with a “prefix”</h2>
 <p>Nearly all <code>tmux</code> commands look like:</p>
 <ul>
-<li>Press <code>&lt;prefix&gt;</code>, release, then press <code>&lt;key&gt;</code></li>
+<li>Press <code>&lt;prefix&gt;</code>, release, then press
+<code>&lt;key&gt;</code></li>
 </ul>
 <p><code>&lt;prefix&gt;</code> is <code>Ctrl + B</code> by default</p>
 <ul>
-<li>You can rebind this if you want (ex: I use <code>Ctrl + F</code>)</li>
+<li>You can rebind this if you want (ex: I use
+<code>Ctrl + F</code>)</li>
 </ul>
 <p>Examples:</p>
 <ul>
-<li><code>Ctrl + B, %</code> <span class="math inline">→</span> create vertical split</li>
-<li><code>Ctrl + B, "</code> <span class="math inline">→</span> create horizontal split</li>
-<li><code>Ctrl + B, c</code> <span class="math inline">→</span> create new tab</li>
+<li><code>Ctrl + B, %</code> <span class="math inline">→</span> create
+vertical split</li>
+<li><code>Ctrl + B, "</code> <span class="math inline">→</span> create
+horizontal split</li>
+<li><code>Ctrl + B, c</code> <span class="math inline">→</span> create
+new tab</li>
 </ul>
 </section>
 <section id="why-use-tmux-then" class="level2">
@@ -110,11 +125,15 @@
 </blockquote>
 <p>This config file makes using <code>tmux</code> easier to start.</p>
 <ul>
-<li><a href="https://github.com/cmugpi/dotfiles/blob/master/tmux.conf">Starter <code>tmux.conf</code> file</a></li>
+<li><a
+href="https://github.com/cmugpi/dotfiles/blob/master/tmux.conf">Starter
+<code>tmux.conf</code> file</a></li>
 </ul>
 <p>This cheat sheet has everything else you want to know.</p>
 <ul>
-<li><a href="https://gist.github.com/MohamedAlaa/2961058"><code>tmux</code> shortcuts &amp; cheatsheet</a></li>
+<li><a
+href="https://gist.github.com/MohamedAlaa/2961058"><code>tmux</code>
+shortcuts &amp; cheatsheet</a></li>
 </ul>
 </section>
 </section>
@@ -123,8 +142,10 @@
 <section id="fzf-is-a-command-line-fuzzy-finder" class="level2">
 <h2><code>fzf</code> is a command line fuzzy finder</h2>
 <ul>
-<li>TL;DR: look at <a href="https://github.com/junegunn/fzf">this awesome demo</a></li>
-<li>To install: <a href="https://github.com/junegunn/fzf" class="uri">https://github.com/junegunn/fzf</a>
+<li>TL;DR: look at <a href="https://github.com/junegunn/fzf">this
+awesome demo</a></li>
+<li>To install: <a href="https://github.com/junegunn/fzf"
+class="uri">https://github.com/junegunn/fzf</a>
 <ul>
 <li>Just go ahead and answer “yes” to everything</li>
 </ul></li>
@@ -133,7 +154,8 @@
 <section id="using-fzf-is-crazy-powerful" class="level2">
 <h2>Using <code>fzf</code> is crazy powerful</h2>
 <ul>
-<li>Press <code>Ctrl + T</code> to fuzzy-find files in the current folder.
+<li>Press <code>Ctrl + T</code> to fuzzy-find files in the current
+folder.
 <ul>
 <li>Type things to filter results</li>
 <li>Use arrow keys to highlight result</li>
@@ -156,11 +178,13 @@
 <li>Custom keybindings</li>
 <li>History search</li>
 <li><code>my-command $(fzf)</code></li>
-<li>It’s all documented: <a href="https://github.com/junegunn/fzf" class="uri">https://github.com/junegunn/fzf</a></li>
+<li>It’s all documented: <a href="https://github.com/junegunn/fzf"
+class="uri">https://github.com/junegunn/fzf</a></li>
 </ul></li>
 <li>For the adventurous: my <code>fzf</code> config
 <ul>
-<li><a href="https://github.com/jez/dotfiles/blob/d540b50/util/fzf.zsh" class="uri">https://github.com/jez/dotfiles/blob/d540b50/util/fzf.zsh</a></li>
+<li><a href="https://github.com/jez/dotfiles/blob/d540b50/util/fzf.zsh"
+class="uri">https://github.com/jez/dotfiles/blob/d540b50/util/fzf.zsh</a></li>
 </ul></li>
 </ul>
 </section>
@@ -170,7 +194,8 @@
 <section id="ag-is-like-grep-but-for-humans" class="level2">
 <h2><code>ag</code> is like <code>grep</code> but for humans</h2>
 <ul>
-<li><code>ag</code> is similar to a tool called <code>ack</code>, but faster</li>
+<li><code>ag</code> is similar to a tool called <code>ack</code>, but
+faster</li>
 <li><code>ag</code> is recursive by default
 <ul>
 <li>avoid having to always type <code>grep -r ...</code></li>
@@ -181,12 +206,15 @@
 </ul></li>
 <li><code>ag</code> prints one line per source line
 <ul>
-<li><code>grep</code> will duplicate a line if there is more than one match in it</li>
+<li><code>grep</code> will duplicate a line if there is more than one
+match in it</li>
 </ul></li>
 <li><code>ag</code> lets you search specific file types
 <ul>
-<li><code>ag --html --css --js</code> will search only HTML, CSS, and JavaScript files</li>
-<li><code>ag --cc</code> will search only <code>*.c</code> and <code>*.h</code> file types</li>
+<li><code>ag --html --css --js</code> will search only HTML, CSS, and
+JavaScript files</li>
+<li><code>ag --cc</code> will search only <code>*.c</code> and
+<code>*.h</code> file types</li>
 </ul></li>
 </ul>
 </section>
@@ -196,7 +224,9 @@
 <li>Install from your package manager
 <ul>
 <li>The package isn’t just called <code>ag</code></li>
-<li>See <a href="https://github.com/ggreer/the_silver_searcher#installing">here</a> for the name on your system</li>
+<li>See <a
+href="https://github.com/ggreer/the_silver_searcher#installing">here</a>
+for the name on your system</li>
 </ul></li>
 <li>Examples
 <ul>
@@ -215,4 +245,13 @@
 </ul></li>
 </ul>
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Windows users: the rest of this talk assumes macOS or
+Linux.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
