@@ -22,7 +22,8 @@ Pandoc Markdown (including support for tufte-css-style sidenotes!).
 
 ```bash
 # One-time setup: install the dependencies
-bundle install
+brew bundle     # pandoc, etc.
+bundle install  # jekyll, etc.
 
 # Preview the site
 bundle exec jekyll serve
