@@ -21,11 +21,7 @@ pandoc:
   extensions:
     - section-divs
     - from: 'markdown+tex_math_single_backslash'
-    # TODO(jez) pandoc-sidenote is not Apple Silicon compatible
-    # Working on a Lua port, but it's untested. The talks site doesn't use sidenotes yet--ignore them
-    # - filter: 'pandoc-sidenote'
-    # TODO(jez) Try pandoc-sidenote.lua (don't commit this absolute path)
-    # - lua-filter: '/Users/jez/prog/pandoc/pandoc-sidenote/pandoc-sidenote.lua'
+    - lua-filter: pandoc-sidenote.lua
 
 # HACK(jez): We have to hard code the site.baseurl here
 header_includes:
