@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://jez.io/talks/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jez.io/talks/" rel="alternate" type="text/html" /><updated>2025-08-07T21:13:41-07:00</updated><id>https://jez.io/talks/feed.xml</id><title type="html">Talks</title><subtitle>A repository of talks I&apos;ve given</subtitle><author><name>Jake Zimmerman</name></author><entry><title type="html">Past, Present, and Future of Sorbet Type Syntax</title><link href="https://jez.io/talks/history-of-sorbet-syntax/" rel="alternate" type="text/html" title="Past, Present, and Future of Sorbet Type Syntax" /><published>2025-04-23T00:00:00-07:00</published><updated>2025-04-23T00:00:00-07:00</updated><id>https://jez.io/talks/history-of-sorbet-syntax</id><content type="html" xml:base="https://jez.io/talks/history-of-sorbet-syntax/"><![CDATA[<p>I gave a talk at the SF Bay Area Ruby Meetup in April 2025 about the
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://jez.io/talks/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jez.io/talks/" rel="alternate" type="text/html" /><updated>2025-11-02T21:01:01-08:00</updated><id>https://jez.io/talks/feed.xml</id><title type="html">Talks</title><subtitle>A repository of talks I&apos;ve given</subtitle><author><name>Jake Zimmerman</name></author><entry><title type="html">Software Engineering Daily</title><link href="https://jez.io/talks/software-engineering-daily/" rel="alternate" type="text/html" title="Software Engineering Daily" /><published>2025-10-14T00:00:00-07:00</published><updated>2025-10-14T00:00:00-07:00</updated><id>https://jez.io/talks/software-engineering-daily</id><content type="html" xml:base="https://jez.io/talks/software-engineering-daily/"><![CDATA[<p>I joined Josh Goldberg on the <a
+href="https://softwareengineeringdaily.com/">Software Engineering
+Daily</a> podcast to talk about working on Sorbet at Stripe.</p>
+<p>The episode summary:</p>
+<blockquote>
+<p>Jake Zimmerman is a software engineer at Stripe and leads development
+on Sorbet. He joins the podcast with Josh Goldberg to discuss his
+background, the challenges of typing in Ruby, the motivation behind
+Sorbet, its architecture, performance optimizations, and more.</p>
+<p>
+</p>
+</blockquote>
+<ul>
+<li><a
+href="https://softwareengineeringdaily.com/2025/10/14/static-analysis-for-ruby-with-jake-zimmerman/">Episode
+page, including transcript</a></li>
+<li>In various podcast ecosystems:
+<ul>
+<li><a
+href="https://podcasts.apple.com/us/podcast/static-analysis-for-ruby-with-jake-zimmerman/id1019576853?i=1000731771342">Apple
+Podcasts</a></li>
+<li><a
+href="https://open.spotify.com/episode/2iKDEldDdci2suy7C5oUi8?si=1f51d15c7aa74df3">Spotify</a></li>
+<li>find more on the episode page</li>
+</ul></li>
+</ul>]]></content><author><name>Jake Zimmerman</name></author><summary type="html"><![CDATA[I joined Josh Goldberg on the Software Engineering Daily podcast to talk about working on Sorbet at Stripe.]]></summary></entry><entry><title type="html">Past, Present, and Future of Sorbet Type Syntax</title><link href="https://jez.io/talks/history-of-sorbet-syntax/" rel="alternate" type="text/html" title="Past, Present, and Future of Sorbet Type Syntax" /><published>2025-04-23T00:00:00-07:00</published><updated>2025-04-23T00:00:00-07:00</updated><id>https://jez.io/talks/history-of-sorbet-syntax</id><content type="html" xml:base="https://jez.io/talks/history-of-sorbet-syntax/"><![CDATA[<p>I gave a talk at the SF Bay Area Ruby Meetup in April 2025 about the
 history of Sorbet’s type syntax. The abstract of the talk:</p>
 <blockquote>
 <p>No one loves Sorbet’s type syntax, but it’s still the only way to
@@ -241,19 +266,4 @@ Well-Designed Sites</a></li>
 <li><a
 href="https://github.com/jez/talks/tree/master/slides/crafting-well-designed-sites">Markdown
 sources (GitHub)</a></li>
-</ul>]]></content><author><name>Jake Zimmerman</name></author><summary type="html"><![CDATA[My interests varied wildly over my tenure at CMU. Towards the end of my time there, I became increasingly interested in design, specifically typography and information hierarchy. As such, for the Fall 2016 Web Dev Weekend (see also: Frontend JavaScript Primer), I held another workshop-style talk on using typography and information hierarchy titled “Crafting Well-Designed Sites.”]]></summary></entry><entry><title type="html">Oneliners</title><link href="https://jez.io/talks/oneliners/" rel="alternate" type="text/html" title="Oneliners" /><published>2016-10-26T00:00:00-07:00</published><updated>2016-10-26T00:00:00-07:00</updated><id>https://jez.io/talks/oneliners</id><content type="html" xml:base="https://jez.io/talks/oneliners/"><![CDATA[<p>Learning to write bash oneliners is skill that pays incredible
-dividends over the course of career in software engineering or computer
-science. While individual oneliners usually tend to take on a life of
-their own, a few principles apply to nearly every oneliner.</p>
-<p>I gave this talk at CMU as a part of the course 15-131 Great
-Practical Ideas for Computer Scientists. Since it was for a lecture, it
-splits its time beteween reviewing old material and introducing new
-material. Topics introduced include shell IO redirection, crafting bash
-oneliners iteratively, and some common tools that compose well in
-oneliners.</p>
-<ul>
-<li><a href="../slides/oneliners/oneliners.pdf">Oneliners</a></li>
-<li><a
-href="https://github.com/jez/talks/tree/master/slides/oneliners">Markdown
-sources (GitHub)</a></li>
-</ul>]]></content><author><name>Jake Zimmerman</name></author><summary type="html"><![CDATA[Learning to write bash oneliners is skill that pays incredible dividends over the course of career in software engineering or computer science. While individual oneliners usually tend to take on a life of their own, a few principles apply to nearly every oneliner.]]></summary></entry></feed>
+</ul>]]></content><author><name>Jake Zimmerman</name></author><summary type="html"><![CDATA[My interests varied wildly over my tenure at CMU. Towards the end of my time there, I became increasingly interested in design, specifically typography and information hierarchy. As such, for the Fall 2016 Web Dev Weekend (see also: Frontend JavaScript Primer), I held another workshop-style talk on using typography and information hierarchy titled “Crafting Well-Designed Sites.”]]></summary></entry></feed>
